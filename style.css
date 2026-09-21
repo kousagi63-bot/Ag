@@ -45,6 +45,7 @@ body {
   background-color: var(--bg-light);
   line-height: 1.65;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img {
@@ -139,8 +140,13 @@ button {
 
 .btn-primary:hover {
   background: var(--primary-dark);
+  color: var(--white);
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(91, 140, 81, 0.45);
+}
+
+.btn-primary:hover * {
+  color: var(--white);
 }
 
 .btn-accent {
@@ -151,7 +157,12 @@ button {
 
 .btn-accent:hover {
   background: var(--accent-dark);
+  color: var(--white);
   transform: translateY(-2px);
+}
+
+.btn-accent:hover * {
+  color: var(--white);
 }
 
 .btn-outline {
@@ -163,8 +174,12 @@ button {
 
 .btn-outline:hover {
   background: var(--white);
-  color: var(--secondary);
+  color: var(--secondary) !important;
   transform: translateY(-2px);
+}
+
+.btn-outline:hover * {
+  color: var(--secondary) !important;
 }
 
 .btn-outline-dark {
@@ -175,8 +190,12 @@ button {
 
 .btn-outline-dark:hover {
   background: var(--primary);
-  color: var(--white);
+  color: var(--white) !important;
   transform: translateY(-2px);
+}
+
+.btn-outline-dark:hover * {
+  color: var(--white) !important;
 }
 
 /* ==========================================================================
@@ -234,6 +253,8 @@ button {
 }
 
 .header-main {
+  position: sticky;
+  top: 0;
   background: var(--white);
   box-shadow: var(--shadow-sm);
   z-index: 1000;
@@ -805,6 +826,9 @@ button {
 }
 
 .filter-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 24px;
   border-radius: var(--radius-full);
   background: var(--bg-light);
@@ -814,6 +838,7 @@ button {
   border: 1px solid var(--border-color);
   transition: var(--transition);
   cursor: pointer;
+  text-decoration: none;
 }
 
 .filter-pill:hover,
@@ -1208,8 +1233,9 @@ button {
 
 .farmers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 30px;
+  justify-content: center;
 }
 
 .farmer-card {
@@ -1220,6 +1246,9 @@ button {
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-color);
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .farmer-card:hover {
@@ -1230,14 +1259,19 @@ button {
 
 .farmer-img-box {
   height: 280px;
+  width: 100%;
   overflow: hidden;
   position: relative;
+  background-color: #e5ede3;
+  flex-shrink: 0;
 }
 
 .farmer-img-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
+  display: block;
   transition: transform 0.5s ease;
 }
 
@@ -1246,14 +1280,18 @@ button {
 }
 
 .farmer-info {
-  padding: 22px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-start;
 }
 
 .farmer-info h3 {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--secondary);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .farmer-role {
@@ -1262,13 +1300,19 @@ button {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
+}
+
+.farmer-info p {
+  margin-top: auto;
+  line-height: 1.6;
 }
 
 .farmer-socials {
   display: flex;
   justify-content: center;
   gap: 12px;
+  margin-top: 14px;
 }
 
 .farmer-socials a {
@@ -2193,6 +2237,24 @@ button {
   margin-bottom: 12px;
 }
 
+/* Full-screen centered 404 (no header/footer on this page) */
+.page-banner.error-page {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.page-banner.error-page .container {
+  width: 100%;
+}
+
+.page-banner.error-page .btn {
+  margin: 6px;
+}
+
 .breadcrumb {
   display: inline-flex;
   align-items: center;
@@ -2360,6 +2422,25 @@ button {
   color: var(--text-muted);
   font-size: 0.95rem;
   font-weight: 600;
+}
+
+.impact-line {
+  width: 220px;
+  height: 3px;
+  margin: 26px auto 0;
+  border-radius: var(--radius-full);
+  background: var(--border-color);
+  overflow: hidden;
+}
+
+.impact-line-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--primary-light), var(--primary));
+  transform: scaleX(0);
+  transform-origin: left center;
 }
 
 /* Certifications Badges Grid */
@@ -2639,6 +2720,100 @@ input[type="password"]::-ms-clear {
   display: none;
 }
 
+/* Password visibility toggle button inside input wrap */
+.password-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.password-input-wrap .form-control {
+  padding-right: 48px;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  cursor: pointer;
+  padding: 8px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  border-radius: var(--radius-sm);
+}
+
+.password-toggle-btn:hover {
+  color: var(--primary);
+}
+
+.password-toggle-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+/* Remember Me & Forgot Password Row */
+.auth-options-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: -6px;
+  margin-bottom: 22px;
+  font-size: 0.88rem;
+}
+
+.remember-me-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-main);
+  cursor: pointer;
+  user-select: none;
+  font-weight: 500;
+}
+
+.remember-me-label input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--primary);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.forgot-password-link {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.forgot-password-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Forgot Password Modal Icon */
+.forgot-icon-wrap {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
+  background: var(--primary-bg);
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin: 0 auto 14px;
+}
+
 /* ==========================================================================
    Brand Logo (logo.webp)
    ========================================================================== */
@@ -2669,20 +2844,148 @@ input[type="password"]::-ms-clear {
   margin: 0 auto 16px;
 }
 
-/* Full-screen centered auth pages (login / create account) */
+.login-logo-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.login-logo-link:hover {
+  transform: scale(1.03);
+  opacity: 0.92;
+}
+
+/* Full-screen centered auth pages (login / create account) - fit to screen */
 .auth-page {
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--bg-light);
-  padding: 24px 16px;
+  padding: 16px 14px;
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .auth-wrap {
   width: 100%;
-  max-width: 560px;
+  max-width: 440px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Standalone Auth Page Login Card - Compact & Screen-Fit */
+.auth-page .login-modal {
+  width: 100%;
+  max-width: 430px;
+  padding: 24px 26px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+  margin: 0 auto;
+}
+
+.auth-page .login-brand-logo {
+  height: 50px;
+  width: auto;
+  margin: 0 auto 8px;
+}
+
+.auth-page .login-modal-header {
+  margin-bottom: 12px;
+}
+
+.auth-page .login-modal-header h3 {
+  font-size: 1.45rem;
+  margin-bottom: 2px;
+}
+
+.auth-page .login-modal-header p {
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+.auth-page .role-switch {
+  grid-template-columns: 1fr 1fr !important;
+  margin-bottom: 12px;
+  padding: 4px;
+  gap: 8px;
+}
+
+.auth-page .role-btn {
+  padding: 8px 10px;
+  font-size: 0.88rem;
+  gap: 6px;
+}
+
+.auth-page .form-group {
+  margin-bottom: 12px;
+}
+
+.auth-page .form-group label {
+  font-size: 0.84rem;
+  margin-bottom: 4px;
+}
+
+.auth-page .form-control {
+  padding: 9px 13px;
+  font-size: 0.92rem;
+}
+
+.auth-page .password-input-wrap .form-control {
+  padding-right: 42px;
+}
+
+.auth-page .password-toggle-btn {
+  right: 6px;
+  padding: 6px 8px;
+  font-size: 0.95rem;
+}
+
+.auth-page .auth-options-row {
+  margin-top: -2px;
+  margin-bottom: 12px;
+  font-size: 0.84rem;
+}
+
+.auth-page .btn {
+  padding: 10px 20px;
+  font-size: 0.92rem;
+  gap: 8px;
+}
+
+.auth-page .login-hint {
+  font-size: 0.78rem;
+  margin-top: 10px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--primary-bg);
+  line-height: 1.35;
+  color: var(--text-main);
+  text-align: center;
+}
+
+.auth-page .login-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0 10px;
+}
+
+.auth-page .login-divider span:first-child,
+.auth-page .login-divider span:last-child {
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+.auth-page .login-divider span:nth-child(2) {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: nowrap;
 }
 
 /* ==========================================================================
@@ -3329,11 +3632,8 @@ input[type="password"]::-ms-clear {
 }
 
 @media(max-width: 600px) {
-  .role-switch {
-    grid-template-columns: 1fr;
-  }
   .login-modal {
-    padding: 24px 16px;
+    padding: 22px 18px;
   }
   .modal-box {
     grid-template-columns: 1fr;
@@ -3341,6 +3641,19 @@ input[type="password"]::-ms-clear {
 }
 
 @media(max-width: 480px) {
+  .auth-page {
+    padding: 10px 8px;
+  }
+  .auth-page .login-modal {
+    padding: 18px 16px;
+  }
+  .auth-page .login-brand-logo {
+    height: 44px;
+    margin-bottom: 6px;
+  }
+  .auth-page .login-modal-header h3 {
+    font-size: 1.3rem;
+  }
   .dashboard-topbar .user-chip .user-meta span {
     display: none;
   }
@@ -3355,3 +3668,259 @@ input[type="password"]::-ms-clear {
   }
 }
 
+
+/* ==========================================================================
+   Pinned Horizontal Story Scroller
+   ========================================================================== */
+.story-scroll {
+  position: relative;
+  background: linear-gradient(180deg, var(--secondary) 0%, #182018 100%);
+  color: var(--white);
+}
+
+.story-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.story-head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 40px;
+  padding: 0 24px;
+}
+
+.story-head .title-tagline {
+  color: var(--primary-light);
+}
+
+.story-head .section-title {
+  color: var(--white);
+}
+
+.story-head .section-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.story-track {
+  display: flex;
+  gap: 30px;
+  padding: 0 max(24px, calc((100vw - 1200px) / 2));
+  will-change: transform;
+}
+
+.story-card {
+  flex: 0 0 400px;
+  width: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.story-card:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(118, 175, 107, 0.5);
+}
+
+.story-card-media {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.story-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-card:hover .story-card-media img {
+  transform: scale(1.06);
+}
+
+.story-card-index {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-md);
+}
+
+.story-card-body {
+  padding: 28px 26px 32px;
+}
+
+.story-card-body .story-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary-light);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.story-card-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  line-height: 1.3;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.story-card-body p {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.story-progress {
+  width: 180px;
+  height: 4px;
+  margin: 40px auto 0;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+.story-progress-bar {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  transition: width 0.15s linear;
+}
+
+@media (max-width: 900px) {
+  .story-scroll {
+    height: auto !important;
+  }
+  .story-sticky {
+    position: static;
+    height: auto;
+    padding: 70px 0;
+  }
+  .story-track {
+    gap: 20px;
+    padding: 0 24px 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .story-card {
+    flex: 0 0 82vw;
+    width: 82vw;
+    scroll-snap-align: center;
+  }
+  .story-card-media {
+    height: 210px;
+  }
+  .story-progress {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Parallax Hero / Page Banner
+   ========================================================================== */
+.has-parallax {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--secondary);
+  --parallax-overlay: linear-gradient(rgba(17, 26, 17, 0.65), rgba(17, 26, 17, 0.75));
+}
+
+.page-banner.has-parallax {
+  --parallax-overlay: linear-gradient(rgba(17, 26, 17, 0.75), rgba(17, 26, 17, 0.85));
+}
+
+.has-parallax .parallax-bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -18%;
+  height: 136%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.has-parallax::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: var(--parallax-overlay);
+}
+
+.has-parallax > *:not(.parallax-bg) {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   Word Reveal, Card Stagger & Background Zoom (GSAP ScrollTrigger)
+   ========================================================================== */
+.reveal-word {
+  display: inline-block;
+}
+
+.has-bg-zoom {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--secondary);
+}
+
+.has-bg-zoom .bg-zoom {
+  position: absolute;
+  inset: -12%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.has-bg-zoom::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: var(--bg-overlay, rgba(17, 26, 17, 0.7));
+}
+
+.has-bg-zoom > *:not(.bg-zoom) {
+  position: relative;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-word {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

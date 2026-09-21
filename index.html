@@ -45,9 +45,9 @@
           <span>Shop Fresh</span>
           <i class="fas fa-arrow-right"></i>
         </a>
-        <button class="nav-icon-btn login-icon-btn" id="loginBtn" title="Login / Account" aria-label="Login">
+        <a href="login.html" class="nav-icon-btn login-icon-btn" id="loginBtn" title="Login / Account" aria-label="Login">
           <i class="fas fa-user"></i>
-        </button>
+        </a>
 
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
           <i class="fas fa-bars"></i>
@@ -57,7 +57,8 @@
   </header>
 
   <!-- SECTION 3: Hero Master Slider -->
-  <section class="hero-section" id="hero">
+  <section class="hero-section has-parallax" id="hero">
+    <span class="parallax-bg" aria-hidden="true" style="background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?fm=webp&fit=crop&w=800&q=55');"></span>
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge">
@@ -510,7 +511,9 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="logo.webp" alt="Agro - Organic Farm" class="footer-brand-img">
+          <a href="index.html" class="footer-brand-link" aria-label="Agro Farm - Back to homepage">
+            <img src="logo.webp" alt="Agro - Organic Farm" class="footer-brand-img">
+          </a>
           <p>
             Agro is an ethical agriculture platform connecting health-conscious individuals and restaurants directly with certified organic farmers, clean soil practices, and heritage crops.
           </p>
@@ -623,6 +626,8 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- Script -->
-  <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

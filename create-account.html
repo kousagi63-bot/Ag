@@ -15,7 +15,9 @@
   <div class="auth-wrap">
       <div class="login-modal" style="margin: 0 auto;">
         <div class="login-modal-header">
-          <img src="logo.webp" alt="Agro - Organic Farm" class="login-brand-logo">
+          <a href="index.html" class="login-logo-link" title="Agro Home">
+            <img src="logo.webp" alt="Agro - Organic Farm" class="login-brand-logo">
+          </a>
           <h3>Welcome to Agro</h3>
           <p>Create your account to start ordering fresh from the farm.</p>
         </div>
@@ -43,10 +45,10 @@
           </button>
         </form>
 
-        <div style="display: flex; align-items: center; gap: 12px; margin: 24px 0 14px;">
-          <span style="flex: 1; height: 1px; background: var(--border-color);"></span>
-          <span style="font-size: 0.85rem; color: var(--text-muted);">Already have an account?</span>
-          <span style="flex: 1; height: 1px; background: var(--border-color);"></span>
+        <div class="login-divider">
+          <span></span>
+          <span>Already have an account?</span>
+          <span></span>
         </div>
         <a href="login.html" class="btn btn-outline-dark" style="width: 100%;">
           <i class="fas fa-sign-in-alt"></i> Sign In
@@ -93,6 +95,8 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- Script -->
-  <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

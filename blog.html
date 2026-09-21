@@ -40,9 +40,9 @@
           <span>Shop Fresh</span>
           <i class="fas fa-arrow-right"></i>
         </a>
-        <button class="nav-icon-btn login-icon-btn" id="loginBtn" title="Login / Account" aria-label="Login">
+        <a href="login.html" class="nav-icon-btn login-icon-btn" id="loginBtn" title="Login / Account" aria-label="Login">
           <i class="fas fa-user"></i>
-        </button>
+        </a>
 
         <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
       </div>
@@ -93,11 +93,11 @@
   <section style="padding: 20px 0; background: var(--white);">
     <div class="container">
       <div class="filter-pills" style="margin-bottom: 20px;">
-        <button class="filter-pill active">All Articles</button>
-        <button class="filter-pill">Soil Biology</button>
-        <button class="filter-pill">Seasonal Cooking</button>
-        <button class="filter-pill">Beekeeping & Apiary</button>
-        <button class="filter-pill">Regenerative Methods</button>
+        <a href="404.html" class="filter-pill active">All Articles</a>
+        <a href="404.html" class="filter-pill">Soil Biology</a>
+        <a href="404.html" class="filter-pill">Seasonal Cooking</a>
+        <a href="404.html" class="filter-pill">Beekeeping & Apiary</a>
+        <a href="404.html" class="filter-pill">Regenerative Methods</a>
       </div>
     </div>
   </section>
@@ -114,7 +114,7 @@
           </div>
           <div class="blog-content">
             <div class="blog-meta"><span><i class="fas fa-tag"></i> Nutrition</span><span><i class="fas fa-clock"></i> 5 min read</span></div>
-            <h3 class="blog-title"><a href="#">Top 7 Nutrient-Dense Roots To Roast This Autumn</a></h3>
+            <h3 class="blog-title"><a href="404.html">Top 7 Nutrient-Dense Roots To Roast This Autumn</a></h3>
             <p>From purple heirloom carrots to sweet candy beets, discover simple cooking methods to preserve vitamins.</p>
           </div>
         </div>
@@ -127,7 +127,7 @@
           </div>
           <div class="blog-content">
             <div class="blog-meta"><span><i class="fas fa-tag"></i> Apiary</span><span><i class="fas fa-clock"></i> 6 min read</span></div>
-            <h3 class="blog-title"><a href="#">Why Native Honeybee Sanctuaries Protect Orchard Yields</a></h3>
+            <h3 class="blog-title"><a href="404.html">Why Native Honeybee Sanctuaries Protect Orchard Yields</a></h3>
             <p>How planting boundary wildflower strips preserves pollinator health and boosts fruit setting naturally.</p>
           </div>
         </div>
@@ -140,7 +140,7 @@
           </div>
           <div class="blog-content">
             <div class="blog-meta"><span><i class="fas fa-tag"></i> Artisanal</span><span><i class="fas fa-clock"></i> 7 min read</span></div>
-            <h3 class="blog-title"><a href="#">Single Cold-Press: The Science Behind Extra Virgin Phenols</a></h3>
+            <h3 class="blog-title"><a href="404.html">Single Cold-Press: The Science Behind Extra Virgin Phenols</a></h3>
             <p>Why temperature during olive pressing dictates the pungent antioxidant polyphenol level in genuine olive oils.</p>
           </div>
         </div>
@@ -257,9 +257,21 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="logo.webp" alt="Agro - Organic Farm" class="footer-brand-img">
-          <p>Connecting health-conscious communities directly with verified organic farmers, clean soil practices, and heritage whole foods.</p>
+          <a href="index.html" class="footer-brand-link" aria-label="Agro Farm - Back to homepage">
+            <img src="logo.webp" alt="Agro - Organic Farm" class="footer-brand-img">
+          </a>
+          <p>
+            Agro is an ethical agriculture platform connecting health-conscious individuals and restaurants directly with certified organic farmers, clean soil practices, and heritage crops.
+          </p>
+          <div class="topbar-socials">
+            <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+            <a href="404.html"><i class="fab fa-twitter"></i></a>
+            <a href="404.html"><i class="fab fa-instagram"></i></a>
+            <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+            <a href="404.html"><i class="fab fa-youtube"></i></a>
+          </div>
         </div>
+
         <div class="footer-col">
           <h3>Explore Pages</h3>
           <ul>
@@ -270,23 +282,49 @@
             <li><a href="services.html">Service</a></li>
           </ul>
         </div>
+
         <div class="footer-col">
-          <h3>Categories</h3>
-          <ul>
-            <li><a href="shop.html">Vegetables</a></li>
-            <li><a href="shop.html">Fresh Fruits</a></li>
-            <li><a href="shop.html">Raw Honey</a></li>
-            <li><a href="shop.html">Pasture Dairy</a></li>
-          </ul>
+          <h3>Contact Us</h3>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>742 Evergreen Terrace, Farm District, California 90210</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+1 (800) 456-7890</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>support@agro-farm.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-clock"></i>
+            <span>Mon - Sat: 07:00 AM - 08:00 PM</span>
+          </div>
         </div>
+
         <div class="footer-col">
-          <h3>Journal Desk</h3>
-          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>editorial@agro-farm.com</span></div>
-          <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><span>+1 (800) 456-7890</span></div>
+          <h3>Farm Gallery</h3>
+          <div class="footer-gallery">
+            <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 1" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 2" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 3" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 4" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 5" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 6" loading="lazy" decoding="async">
+          </div>
         </div>
       </div>
+
       <div class="footer-bottom">
         <p>&copy; 2026 Agro - Agriculture & Organic Food Marketplace. All rights reserved.</p>
+        <div class="payment-methods">
+          <i class="fab fa-cc-visa" title="Visa"></i>
+          <i class="fab fa-cc-mastercard" title="MasterCard"></i>
+          <i class="fab fa-cc-amex" title="American Express"></i>
+          <i class="fab fa-cc-paypal" title="PayPal"></i>
+          <i class="fab fa-apple-pay" title="Apple Pay"></i>
+        </div>
       </div>
     </div>
   </footer>
@@ -310,6 +348,8 @@
   </aside>
 
   <div class="toast-container" id="toastContainer"></div>
-  <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

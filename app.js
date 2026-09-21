@@ -163,6 +163,18 @@ document.addEventListener('DOMContentLoaded', () => {
   setupLoginPage();
   setupDashboardGuard();
   setupDashboardMobileMenu();
+  setupStoryScroll();
+  setupParallax();
+  setupImpactCounters();
+  setupTextReveal();
+  setupCardStagger();
+  setupImageZoomReveal();
+  setupBgZoom();
+
+  // Recalculate trigger positions once every asset (images/fonts) has loaded.
+  window.addEventListener('load', () => {
+    if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+  });
 });
 
 // Render Product Cards
@@ -217,6 +229,9 @@ function renderProducts(items) {
     `;
     productsGrid.appendChild(card);
   });
+
+  // Newly rendered product images get the zoom-out reveal too.
+  setupImageZoomReveal();
 }
 
 // Category Pill Filter
@@ -495,6 +510,364 @@ function setupStickyHeader() {
   });
 }
 
+// Pinned Horizontal Story Scroller
+function setupStoryScroll() {
+  const sections = document.querySelectorAll('[data-story-scroll]');
+  if (!sections.length) return;
+
+  const desktop = () => window.matchMedia('(min-width: 901px)').matches;
+  let ticking = false;
+
+  function layout() {
+    sections.forEach(section => {
+      const track = section.querySelector('.story-track');
+      if (!track) return;
+      if (!desktop()) {
+        section.style.height = '';
+        section.dataset.distance = 0;
+        track.style.transform = '';
+        return;
+      }
+      // Horizontal distance is derived from the actual rendered track width.
+      const distance = Math.max(track.scrollWidth - window.innerWidth, 0);
+      section.dataset.distance = distance;
+      section.style.height = `${window.innerHeight + distance}px`;
+    });
+  }
+
+  function update() {
+    ticking = false;
+    sections.forEach(section => {
+      const track = section.querySelector('.story-track');
+      if (!track) return;
+      const distance = parseFloat(section.dataset.distance) || 0;
+      if (!distance) return;
+      const top = section.getBoundingClientRect().top;
+      const progress = Math.min(Math.max(-top / distance, 0), 1);
+      track.style.transform = `translate3d(${-progress * distance}px, 0, 0)`;
+      const bar = section.querySelector('.story-progress-bar');
+      if (bar) bar.style.width = `${progress * 100}%`;
+    });
+  }
+
+  function requestUpdate() {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+  }
+
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', () => { layout(); update(); });
+  layout();
+  update();
+}
+
+// Parallax Hero / Page Banner
+function setupParallax() {
+  const sections = document.querySelectorAll('.has-parallax');
+  if (!sections.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const STRENGTH = 0.15; // max shift as a fraction of the section height
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    const vh = window.innerHeight;
+    sections.forEach(section => {
+      const bg = section.querySelector('.parallax-bg');
+      if (!bg) return;
+      const rect = section.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > vh) return;
+
+      // -1 when the section is entering from the bottom, +1 when leaving the top.
+      const progress = (rect.top + rect.height / 2 - vh / 2) / (vh / 2 + rect.height / 2);
+      const shift = Math.max(Math.min(progress, 1), -1) * rect.height * STRENGTH;
+      bg.style.transform = `translate3d(0, ${shift}px, 0)`;
+    });
+  }
+
+  function requestUpdate() {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+  }
+
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate);
+  update();
+}
+
+// Impact Counters (GSAP scroll-scrubbed line + values)
+function setupImpactCounters() {
+  const section = document.querySelector('.impact-counters');
+  if (!section) return;
+
+  const counters = section.querySelectorAll('[data-counter-target]');
+  const fill = section.querySelector('.impact-line-fill');
+  const fmt = value => Math.round(value).toLocaleString('en-US');
+  const suffixOf = el => el.dataset.counterSuffix || '';
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    counters.forEach(el => {
+      el.textContent = fmt(parseFloat(el.dataset.counterTarget) || 0) + suffixOf(el);
+    });
+    if (fill) fill.style.transform = 'scaleX(1)';
+    return;
+  }
+
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (fill) {
+    gsap.fromTo(fill,
+      { scaleX: 0 },
+      {
+        scaleX: 1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 80%',
+          end: 'bottom 60%',
+          scrub: true
+        }
+      }
+    );
+  }
+
+  counters.forEach(el => {
+    const target = parseFloat(el.dataset.counterTarget) || 0;
+    const state = { value: 0 };
+    gsap.to(state, {
+      value: target,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: el.closest('.stat-counter-card') || el,
+        start: 'top 90%',
+        end: 'top 45%',
+        scrub: true
+      },
+      onUpdate: () => { el.textContent = fmt(state.value) + suffixOf(el); }
+    });
+  });
+}
+
+// Word-by-word scroll reveal / text highlighting
+function canScroll() {
+  return (document.documentElement.scrollHeight - window.innerHeight) > 40;
+}
+
+function isAboveFold(el, ratio = 0.9) {
+  const rect = el.getBoundingClientRect();
+  return rect.top < window.innerHeight * ratio && rect.bottom > 0;
+}
+
+// True when scrolling can actually bring the element's trigger point on screen.
+function triggerReachable(el, startRatio = 0.88) {
+  const rect = el.getBoundingClientRect();
+  const docTop = rect.top + window.pageYOffset;
+  const startScroll = docTop - window.innerHeight * startRatio;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  return startScroll <= maxScroll + 2;
+}
+
+function splitIntoWords(el) {
+  if (el.dataset.wordsSplit) return el.querySelectorAll('.reveal-word');
+  el.dataset.wordsSplit = '1';
+
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+  const textNodes = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+  textNodes.forEach(node => {
+    const parts = node.nodeValue.split(/(\s+)/);
+    const frag = document.createDocumentFragment();
+    parts.forEach(part => {
+      if (part === '') return;
+      if (/^\s+$/.test(part)) {
+        frag.appendChild(document.createTextNode(part));
+        return;
+      }
+      const span = document.createElement('span');
+      span.className = 'reveal-word';
+      span.textContent = part;
+      frag.appendChild(span);
+    });
+    if (node.parentNode) node.parentNode.replaceChild(frag, node);
+  });
+
+  return el.querySelectorAll('.reveal-word');
+}
+
+function setupTextReveal() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray('.section-title, .section-subtitle, .title-tagline, .page-banner h1, .hero-title')
+    .forEach(el => {
+      if (el.dataset.textRevealBound) return;
+      el.dataset.textRevealBound = '1';
+
+      const words = splitIntoWords(el);
+      if (!words.length) return;
+
+      // Show immediately for content already on screen or on non-scrollable pages
+      // so text can never get stuck in the dimmed state.
+      if (!canScroll() || isAboveFold(el) || !triggerReachable(el, 0.88)) {
+        gsap.set(words, { autoAlpha: 1, y: 0, clearProps: 'transform' });
+        return;
+      }
+
+      gsap.fromTo(words,
+        { autoAlpha: 0.2, y: 10 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          ease: 'none',
+          stagger: 0.35,
+          scrollTrigger: { trigger: el, start: 'top 88%', end: 'top 55%', scrub: true }
+        }
+      );
+    });
+}
+
+// Staggered fade-up cards
+function setupCardStagger() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const selector = '.feature-card, .category-card, .product-card, .blog-card, ' +
+    '.farmer-card, .cert-card, .stat-counter-card, .service-card, .testi-card, ' +
+    '.contact-method-card, .pricing-card, .address-card, .stat-card, .product-card-mini, ' +
+    '.about-content, .about-image-wrapper, .hero-stat-item';
+
+  const groups = new Map();
+  gsap.utils.toArray(selector).forEach(card => {
+    if (card.dataset.staggerBound) return;
+    card.dataset.staggerBound = '1';
+    const parent = card.parentElement;
+    if (!groups.has(parent)) groups.set(parent, []);
+    groups.get(parent).push(card);
+  });
+
+  groups.forEach(list => {
+    const trigger = list[0].parentElement;
+    const from = { autoAlpha: 0, y: 50 };
+    const to = {
+      autoAlpha: 1,
+      y: 0,
+      duration: 0.65,
+      ease: 'power3.out',
+      stagger: 0.12,
+      clearProps: 'transform'
+    };
+
+    // Play immediately when the page cannot scroll or the group is already on
+    // screen, so cards never remain stuck at opacity 0.
+    if (!canScroll() || isAboveFold(trigger, 0.85) || !triggerReachable(trigger, 0.88)) {
+      gsap.fromTo(list, from, to);
+      return;
+    }
+
+    // NOTE: must use fromTo (not from) here — gsap.from() combined with a
+    // scrollTrigger leaves the cards stuck at autoAlpha:0.
+    gsap.fromTo(list, from, Object.assign({}, to, {
+      scrollTrigger: { trigger, start: 'top 88%', once: true }
+    }));
+  });
+}
+
+// Image zoom-out reveal for content card images
+// Starts slightly enlarged (scale 1.15) while fading in, settling to 1 over 1.5s.
+function setupImageZoomReveal() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const selector = '.blog-thumb img, .product-img-wrapper img, .farmer-img-box img, ' +
+    '.cat-img-box img, .story-card-media img';
+
+  gsap.utils.toArray(selector).forEach(img => {
+    if (img.dataset.zoomRevealBound) return;
+    img.dataset.zoomRevealBound = '1';
+
+    const trigger = img.closest('.blog-thumb, .product-img-wrapper, .farmer-img-box, .cat-img-box, .story-card-media') || img.parentElement;
+
+    const from = { autoAlpha: 0, scale: 1.15 };
+    const to = {
+      autoAlpha: 1,
+      scale: 1,
+      duration: 1.5,
+      ease: 'power2.out',
+      // Freeze the CSS hover transition (and clear transforms at the end) so it
+      // doesn't fight GSAP's per-frame transform updates.
+      onStart: () => { img.style.transition = 'none'; },
+      onComplete: () => {
+        gsap.set(img, { clearProps: 'transform' });
+        img.style.transition = '';
+      }
+    };
+
+    // Play immediately when the page cannot scroll or the image is already on
+    // screen, so images never remain stuck hidden.
+    if (!canScroll() || isAboveFold(trigger, 0.9) || !triggerReachable(trigger, 0.9)) {
+      gsap.fromTo(img, from, to);
+      return;
+    }
+
+    // NOTE: fromTo (not from) — gsap.from() + scrollTrigger stays stuck hidden.
+    gsap.fromTo(img, from, Object.assign({}, to, {
+      scrollTrigger: { trigger, start: 'top 90%', once: true }
+    }));
+  });
+}
+
+// Scroll-linked background zoom / parallax
+function setupBgZoom() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray('.page-banner, .deal-section').forEach(section => {
+    if (section.dataset.bgZoomBound) return;
+    if (section.classList.contains('has-parallax') || section.classList.contains('has-bg-zoom')) return;
+
+    const bg = window.getComputedStyle(section).backgroundImage;
+    const match = bg.match(/url\((?:"([^"]+)"|'([^']+)'|([^)]+))\)/);
+    if (!match) return;
+    const url = (match[1] || match[2] || match[3]).trim();
+    const overlay = bg.replace(/,\s*url\((?:"[^"]*"|'[^']*'|[^)]*)\)\s*/, '').trim();
+
+    section.dataset.bgZoomBound = '1';
+    section.style.backgroundImage = 'none';
+
+    const layer = document.createElement('span');
+    layer.className = 'bg-zoom';
+    layer.setAttribute('aria-hidden', 'true');
+    layer.style.backgroundImage = `url("${url}")`;
+    section.insertBefore(layer, section.firstChild);
+    section.classList.add('has-bg-zoom');
+    section.style.setProperty('--bg-overlay', overlay || 'rgba(17, 26, 17, 0.7)');
+
+    gsap.fromTo(layer,
+      { scale: 1 },
+      {
+        scale: 1.18,
+        ease: 'none',
+        scrollTrigger: { trigger: section, start: 'top bottom', end: 'bottom top', scrub: true }
+      }
+    );
+  });
+}
+
 // Mobile Menu
 function setupMobileMenu() {
   if (!menuToggle || !navLinks) return;
@@ -590,7 +963,9 @@ const loginModalHTML = `
     <div class="login-modal">
       <button class="modal-close-btn" id="closeLoginModal" aria-label="Close login">&times;</button>
       <div class="login-modal-header">
-        <img src="logo.webp" alt="Agro - Organic Farm" class="login-brand-logo">
+        <a href="index.html" class="login-logo-link" title="Agro Home">
+          <img src="logo.webp" alt="Agro - Organic Farm" class="login-brand-logo">
+        </a>
         <h3>Welcome Back</h3>
         <p>Sign in to your Agro account</p>
       </div>
@@ -606,12 +981,24 @@ const loginModalHTML = `
 
       <form id="loginForm">
         <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" class="form-control" id="loginEmail" placeholder="you@agro-farm.com" required>
+          <label for="loginEmail">Email Address</label>
+          <input type="email" class="form-control" id="loginEmail" placeholder="you@agro-farm.com" required autocomplete="email">
         </div>
         <div class="form-group">
-          <label>Password</label>
-          <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+          <label for="loginPassword">Password</label>
+          <div class="password-input-wrap">
+            <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required autocomplete="current-password">
+            <button type="button" class="password-toggle-btn" id="modalTogglePassword" aria-label="Show password">
+              <i class="far fa-eye-slash"></i>
+            </button>
+          </div>
+        </div>
+        <div class="auth-options-row">
+          <label class="remember-me-label" for="modalRememberMe">
+            <input type="checkbox" id="modalRememberMe">
+            <span>Remember me</span>
+          </label>
+          <a href="404.html" class="forgot-password-link" id="modalForgotLink">Forgot password?</a>
         </div>
         <button type="submit" class="btn btn-primary" style="width: 100%;">
           <span>Sign In</span>
@@ -646,7 +1033,39 @@ function setupLogin() {
   const roleButtons = document.querySelectorAll('#roleSwitch .role-btn');
   const form = document.getElementById('loginForm');
   const loginBtn = document.getElementById('loginBtn');
+  const emailInput = document.getElementById('loginEmail');
+  const passwordInput = document.getElementById('loginPassword');
+  const togglePassBtn = document.getElementById('modalTogglePassword');
+  const rememberCheckbox = document.getElementById('modalRememberMe');
   let selectedRole = 'user';
+
+  // Pre-fill remembered email if saved
+  const savedEmail = localStorage.getItem('agroRememberedEmail');
+  if (savedEmail && emailInput) {
+    emailInput.value = savedEmail;
+    if (rememberCheckbox) rememberCheckbox.checked = true;
+    if (savedEmail.toLowerCase().includes('admin')) {
+      selectedRole = 'admin';
+      roleButtons.forEach(b => b.classList.remove('active'));
+      const adminBtn = document.querySelector('#roleSwitch .role-btn[data-role="admin"]');
+      if (adminBtn) adminBtn.classList.add('active');
+    }
+  }
+
+  // Show / Hide Password toggle: if visible eye should open, if hidden eye should close
+  if (togglePassBtn && passwordInput) {
+    togglePassBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const willBeVisible = passwordInput.getAttribute('type') === 'password';
+      passwordInput.setAttribute('type', willBeVisible ? 'text' : 'password');
+      const icon = togglePassBtn.querySelector('i');
+      if (icon) {
+        icon.className = willBeVisible ? 'far fa-eye' : 'far fa-eye-slash';
+      }
+      togglePassBtn.setAttribute('aria-label', willBeVisible ? 'Hide password' : 'Show password');
+      passwordInput.focus();
+    });
+  }
 
   function getSession() {
     return JSON.parse(localStorage.getItem('agroUser') || 'null');
@@ -674,8 +1093,7 @@ function setupLogin() {
       window.location.href = session.role === 'admin' ? 'admin-dashboard.html' : 'user-dashboard.html';
       return;
     }
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    window.location.href = 'login.html';
   }
 
   function closeLogin() {
@@ -708,14 +1126,24 @@ function setupLogin() {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const email = document.getElementById('loginEmail').value.trim();
-      const password = document.getElementById('loginPassword').value.trim();
+      const email = emailInput ? emailInput.value.trim() : '';
+      const password = passwordInput ? passwordInput.value.trim() : '';
 
       if (email === LOGIN_DEMO_CREDENTIALS.user.email && password === LOGIN_DEMO_CREDENTIALS.user.password && selectedRole === 'user') {
+        if (rememberCheckbox && rememberCheckbox.checked) {
+          localStorage.setItem('agroRememberedEmail', email);
+        } else {
+          localStorage.removeItem('agroRememberedEmail');
+        }
         localStorage.setItem('agroUser', JSON.stringify({ role: 'user', email }));
         closeLogin();
         window.location.href = 'user-dashboard.html';
       } else if (email === LOGIN_DEMO_CREDENTIALS.admin.email && password === LOGIN_DEMO_CREDENTIALS.admin.password && selectedRole === 'admin') {
+        if (rememberCheckbox && rememberCheckbox.checked) {
+          localStorage.setItem('agroRememberedEmail', email);
+        } else {
+          localStorage.removeItem('agroRememberedEmail');
+        }
         localStorage.setItem('agroUser', JSON.stringify({ role: 'admin', email }));
         closeLogin();
         window.location.href = 'admin-dashboard.html';
@@ -758,8 +1186,27 @@ function setupLoginPage() {
   const form = document.getElementById('loginPageForm');
   if (!form) return;
 
+  const emailInput = document.getElementById('loginPageEmail');
+  const passwordInput = document.getElementById('loginPagePassword');
+  const rememberCheckbox = document.getElementById('loginPageRememberMe');
+  const togglePassBtn = document.getElementById('loginPageTogglePassword');
+
   let selectedRole = 'user';
   const roleButtons = document.querySelectorAll('#loginPageRoleSwitch .role-btn');
+
+  // Pre-fill remembered email if saved
+  const savedEmail = localStorage.getItem('agroRememberedEmail');
+  if (savedEmail && emailInput) {
+    emailInput.value = savedEmail;
+    if (rememberCheckbox) rememberCheckbox.checked = true;
+    if (savedEmail.toLowerCase().includes('admin')) {
+      selectedRole = 'admin';
+      roleButtons.forEach(b => b.classList.remove('active'));
+      const adminBtn = document.querySelector('#loginPageRoleSwitch .role-btn[data-role="admin"]');
+      if (adminBtn) adminBtn.classList.add('active');
+    }
+  }
+
   roleButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       selectedRole = btn.dataset.role;
@@ -768,17 +1215,45 @@ function setupLoginPage() {
     });
   });
 
+  // 1. Show / Hide Password toggle: if visible eye should open, if hidden eye should close
+  if (togglePassBtn && passwordInput) {
+    togglePassBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const willBeVisible = passwordInput.getAttribute('type') === 'password';
+      passwordInput.setAttribute('type', willBeVisible ? 'text' : 'password');
+      const icon = togglePassBtn.querySelector('i');
+      if (icon) {
+        icon.className = willBeVisible ? 'far fa-eye' : 'far fa-eye-slash';
+      }
+      togglePassBtn.setAttribute('aria-label', willBeVisible ? 'Hide password' : 'Show password');
+      passwordInput.focus();
+    });
+  }
+
+  // 2. Remember Me functionality on form submit
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const email = document.getElementById('loginPageEmail').value.trim();
-    const password = document.getElementById('loginPagePassword').value.trim();
+    const email = emailInput ? emailInput.value.trim() : '';
+    const password = passwordInput ? passwordInput.value.trim() : '';
 
     if (email === LOGIN_DEMO_CREDENTIALS.user.email && password === LOGIN_DEMO_CREDENTIALS.user.password && selectedRole === 'user') {
+      if (rememberCheckbox && rememberCheckbox.checked) {
+        localStorage.setItem('agroRememberedEmail', email);
+      } else {
+        localStorage.removeItem('agroRememberedEmail');
+      }
       localStorage.setItem('agroUser', JSON.stringify({ role: 'user', email }));
-      window.location.href = 'user-dashboard.html';
+      showToast('Welcome back! Redirecting to your dashboard...');
+      setTimeout(() => { window.location.href = 'user-dashboard.html'; }, 300);
     } else if (email === LOGIN_DEMO_CREDENTIALS.admin.email && password === LOGIN_DEMO_CREDENTIALS.admin.password && selectedRole === 'admin') {
+      if (rememberCheckbox && rememberCheckbox.checked) {
+        localStorage.setItem('agroRememberedEmail', email);
+      } else {
+        localStorage.removeItem('agroRememberedEmail');
+      }
       localStorage.setItem('agroUser', JSON.stringify({ role: 'admin', email }));
-      window.location.href = 'admin-dashboard.html';
+      showToast('Welcome back, Admin! Redirecting to dashboard...');
+      setTimeout(() => { window.location.href = 'admin-dashboard.html'; }, 300);
     } else {
       showToast('Invalid credentials. Please try the demo login details shown below.');
     }

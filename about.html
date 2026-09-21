@@ -40,9 +40,9 @@
           <span>Shop Fresh</span>
           <i class="fas fa-arrow-right"></i>
         </a>
-        <button class="nav-icon-btn login-icon-btn" id="loginBtn" title="Login / Account" aria-label="Login">
+        <a href="login.html" class="nav-icon-btn login-icon-btn" id="loginBtn" title="Login / Account" aria-label="Login">
           <i class="fas fa-user"></i>
-        </button>
+        </a>
 
         <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
       </div>
@@ -50,7 +50,8 @@
   </header>
 
   <!-- SECTION 1: Page Banner & Breadcrumb -->
-  <section class="page-banner">
+  <section class="page-banner has-parallax">
+    <span class="parallax-bg" aria-hidden="true" style="background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?fm=webp&fit=crop&w=800&q=55');"></span>
     <div class="container">
       <h1>Our Agricultural Heritage</h1>
       <div class="breadcrumb">
@@ -184,33 +185,34 @@
   </section>
 
   <!-- SECTION 5: By The Numbers / Impact Counters -->
-  <section style="padding: 80px 0; background: var(--primary-bg);">
+  <section class="impact-counters" id="impact" style="padding: 80px 0; background: var(--primary-bg);">
     <div class="container">
       <div class="text-center">
         <span class="title-tagline"><i class="fas fa-chart-line"></i> Measurable Impact</span>
         <h2 class="section-title">Cultivating Numbers That Matter</h2>
         <p class="section-subtitle">Real metrics reflecting real environmental restoration and healthy tables.</p>
+        <div class="impact-line"><span class="impact-line-fill"></span></div>
       </div>
 
       <div class="stat-counter-grid">
         <div class="stat-counter-card">
           <div class="counter-icon"><i class="fas fa-tractor"></i></div>
-          <h3>1,250+</h3>
+          <h3 data-counter-target="1250" data-counter-suffix="+">1,250+</h3>
           <p>Verified Family Farms</p>
         </div>
         <div class="stat-counter-card">
           <div class="counter-icon"><i class="fas fa-tree"></i></div>
-          <h3>34,000</h3>
+          <h3 data-counter-target="34000">34,000</h3>
           <p>Acres of Restored Soil</p>
         </div>
         <div class="stat-counter-card">
           <div class="counter-icon"><i class="fas fa-apple-alt"></i></div>
-          <h3>85,000+</h3>
+          <h3 data-counter-target="85000" data-counter-suffix="+">85,000+</h3>
           <p>Families Fed Weekly</p>
         </div>
         <div class="stat-counter-card">
           <div class="counter-icon"><i class="fas fa-seedling"></i></div>
-          <h3>420+</h3>
+          <h3 data-counter-target="420" data-counter-suffix="+">420+</h3>
           <p>Heritage Crop Species</p>
         </div>
       </div>
@@ -252,7 +254,7 @@
   </section>
 
   <!-- SECTION 7: Agronomy & Leadership Team -->
-  <section style="padding: 90px 0; background: var(--bg-light);">
+  <section class="farmers-section" style="padding: 90px 0; background: var(--bg-light);">
     <div class="container">
       <div class="text-center">
         <span class="title-tagline"><i class="fas fa-users"></i> Our Agronomists</span>
@@ -269,6 +271,11 @@
             <h3>David Miller</h3>
             <div class="farmer-role">Founder & Chief Agriculturalist</div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Pioneered heirloom crop rotative cycles and soil microbiological regeneration.</p>
+            <div class="farmer-socials">
+              <a href="404.html" aria-label="David Miller on Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="404.html" aria-label="David Miller on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="contact.html" aria-label="Contact David Miller"><i class="fas fa-envelope"></i></a>
+            </div>
           </div>
         </div>
 
@@ -280,6 +287,11 @@
             <h3>Dr. Elena Rostova</h3>
             <div class="farmer-role">Head of Soil Microbiology</div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Ph.D. in Microbial Agronomy specializing in zero-chemical pest deterrents.</p>
+            <div class="farmer-socials">
+              <a href="404.html" aria-label="Dr. Elena Rostova on Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="404.html" aria-label="Dr. Elena Rostova on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="contact.html" aria-label="Contact Dr. Elena Rostova"><i class="fas fa-envelope"></i></a>
+            </div>
           </div>
         </div>
 
@@ -291,6 +303,11 @@
             <h3>Marcus Henderson</h3>
             <div class="farmer-role">Director of Sustainable Supply</div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Oversees 100% solar cold transit hubs to preserve nutrients from dawn harvest to door.</p>
+            <div class="farmer-socials">
+              <a href="404.html" aria-label="Marcus Henderson on Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="404.html" aria-label="Marcus Henderson on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="contact.html" aria-label="Contact Marcus Henderson"><i class="fas fa-envelope"></i></a>
+            </div>
           </div>
         </div>
       </div>
@@ -331,6 +348,77 @@
     </div>
   </section>
 
+  <!-- SECTION: Pinned Horizontal Farm Stories -->
+  <section class="story-scroll" data-story-scroll>
+    <div class="story-sticky">
+      <div class="story-head">
+        <span class="title-tagline"><i class="fas fa-seedling"></i> Behind The Harvest</span>
+        <h2 class="section-title">The Stories That Grew With Us</h2>
+        <p class="section-subtitle">Scroll sideways through the moments, milestones, and makers that shaped Agro.</p>
+      </div>
+
+      <div class="story-track">
+        <article class="story-card">
+          <div class="story-card-media">
+            <span class="story-card-index">01</span>
+            <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?fm=webp&fit=crop&w=800&q=55" alt="Rows of organic crops stretching across the farm at golden hour" loading="lazy" decoding="async">
+          </div>
+          <div class="story-card-body">
+            <span class="story-tag">Origin</span>
+            <h3>A Seed Kept Alive For Generations</h3>
+            <p>The same heirloom tomato line our founder planted in 1998 is still saved, dried, and replanted by hand every spring.</p>
+          </div>
+        </article>
+        <article class="story-card">
+          <div class="story-card-media">
+            <span class="story-card-index">02</span>
+            <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?fm=webp&fit=crop&w=700&q=35" alt="Organic farmer inspecting fresh produce in the field" loading="lazy" decoding="async">
+          </div>
+          <div class="story-card-body">
+            <span class="story-tag">People</span>
+            <h3>Meet The Hands Behind The Harvest</h3>
+            <p>Sixteen families tend these fields. Their names travel with every crate, stamped beside the plot it was picked from.</p>
+          </div>
+        </article>
+        <article class="story-card">
+          <div class="story-card-media">
+            <span class="story-card-index">03</span>
+            <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?fm=webp&fit=crop&w=600&q=40" alt="Basket of freshly harvested organic vegetables" loading="lazy" decoding="async">
+          </div>
+          <div class="story-card-body">
+            <span class="story-tag">Craft</span>
+            <h3>Picked At First Light</h3>
+            <p>Harvest begins before sunrise so produce reaches your kitchen while the morning dew is still on the leaves.</p>
+          </div>
+        </article>
+        <article class="story-card">
+          <div class="story-card-media">
+            <span class="story-card-index">04</span>
+            <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?fm=webp&fit=crop&w=600&q=40" alt="Hands holding rich dark soil with a young seedling" loading="lazy" decoding="async">
+          </div>
+          <div class="story-card-body">
+            <span class="story-tag">Soil</span>
+            <h3>Farming The Living Underground</h3>
+            <p>We feed the soil before the crop: vermicompost, cover crops, and zero deep tilling keep the microbiome thriving.</p>
+          </div>
+        </article>
+        <article class="story-card">
+          <div class="story-card-media">
+            <span class="story-card-index">05</span>
+            <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?fm=webp&fit=crop&w=700&q=45" alt="Fresh farm produce prepared for a family meal" loading="lazy" decoding="async">
+          </div>
+          <div class="story-card-body">
+            <span class="story-tag">Table</span>
+            <h3>From Our Field To Your Family Table</h3>
+            <p>No middlemen, no cold storage warehouses for weeks on end. Just a short, traceable route from plot to plate.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="story-progress"><span class="story-progress-bar"></span></div>
+    </div>
+  </section>
+
   <!-- SECTION 9: Call to Action & Global Footer -->
   <section class="newsletter-banner">
     <div class="container">
@@ -354,13 +442,18 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="logo.webp" alt="Agro - Organic Farm" class="footer-brand-img">
-          <p>Connecting health-conscious communities directly with verified organic farmers, clean soil practices, and heritage whole foods.</p>
+          <a href="index.html" class="footer-brand-link" aria-label="Agro Farm - Back to homepage">
+            <img src="logo.webp" alt="Agro - Organic Farm" class="footer-brand-img">
+          </a>
+          <p>
+            Agro is an ethical agriculture platform connecting health-conscious individuals and restaurants directly with certified organic farmers, clean soil practices, and heritage crops.
+          </p>
           <div class="topbar-socials">
             <a href="404.html"><i class="fab fa-facebook-f"></i></a>
             <a href="404.html"><i class="fab fa-twitter"></i></a>
             <a href="404.html"><i class="fab fa-instagram"></i></a>
             <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+            <a href="404.html"><i class="fab fa-youtube"></i></a>
           </div>
         </div>
 
@@ -379,7 +472,7 @@
           <h3>Contact Us</h3>
           <div class="footer-contact-item">
             <i class="fas fa-map-marker-alt"></i>
-            <span>742 Evergreen Terrace, Farm District</span>
+            <span>742 Evergreen Terrace, Farm District, California 90210</span>
           </div>
           <div class="footer-contact-item">
             <i class="fas fa-phone-alt"></i>
@@ -387,22 +480,36 @@
           </div>
           <div class="footer-contact-item">
             <i class="fas fa-envelope"></i>
-            <span>contact@agro-farm.com</span>
+            <span>support@agro-farm.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-clock"></i>
+            <span>Mon - Sat: 07:00 AM - 08:00 PM</span>
           </div>
         </div>
 
         <div class="footer-col">
           <h3>Farm Gallery</h3>
           <div class="footer-gallery">
-            <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?fm=webp&fit=crop&w=200&q=55" alt="Farm 1" loading="lazy" decoding="async">
-            <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?fm=webp&fit=crop&w=200&q=55" alt="Farm 2" loading="lazy" decoding="async">
-            <img src="https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?fm=webp&fit=crop&w=200&q=55" alt="Farm 3" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 1" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 2" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 3" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 4" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 5" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 6" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
         <p>&copy; 2026 Agro - Agriculture & Organic Food Marketplace. All rights reserved.</p>
+        <div class="payment-methods">
+          <i class="fab fa-cc-visa" title="Visa"></i>
+          <i class="fab fa-cc-mastercard" title="MasterCard"></i>
+          <i class="fab fa-cc-amex" title="American Express"></i>
+          <i class="fab fa-cc-paypal" title="PayPal"></i>
+          <i class="fab fa-apple-pay" title="Apple Pay"></i>
+        </div>
       </div>
     </div>
   </footer>
@@ -434,6 +541,8 @@
   </div>
 
   <div class="toast-container" id="toastContainer"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

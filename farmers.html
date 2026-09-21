@@ -40,9 +40,9 @@
           <span>Shop Fresh</span>
           <i class="fas fa-arrow-right"></i>
         </a>
-        <button class="nav-icon-btn login-icon-btn" id="loginBtn" title="Login / Account" aria-label="Login">
+        <a href="login.html" class="nav-icon-btn login-icon-btn" id="loginBtn" title="Login / Account" aria-label="Login">
           <i class="fas fa-user"></i>
-        </button>
+        </a>
 
         <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
       </div>
@@ -90,7 +90,7 @@
           </div>
         </div>
         <div>
-          <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?fm=webp&fit=crop&w=700&q=35" alt="Farmer holding produce" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md); width: 100%;" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?fm=webp&w=700&q=35" alt="Farmer holding produce" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md); width: 100%;" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -120,7 +120,7 @@
         <!-- Farmer 1 -->
         <div class="farmer-card" data-specialty="vegetable">
           <div class="farmer-img-box">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?fm=webp&fit=crop&w=800&q=55" alt="David Miller" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?fm=webp&w=800&q=55" alt="David Miller" loading="lazy" decoding="async">
           </div>
           <div class="farmer-info">
             <h3>David Miller</h3>
@@ -138,7 +138,7 @@
         <!-- Farmer 2 -->
         <div class="farmer-card" data-specialty="apiary">
           <div class="farmer-img-box">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?fm=webp&fit=crop&w=800&q=45" alt="Sarah Jenkins" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?fm=webp&w=800&q=45" alt="Sarah Jenkins" loading="lazy" decoding="async">
           </div>
           <div class="farmer-info">
             <h3>Sarah Jenkins</h3>
@@ -156,7 +156,7 @@
         <!-- Farmer 3 -->
         <div class="farmer-card" data-specialty="orchard">
           <div class="farmer-img-box">
-            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?fm=webp&fit=crop&w=800&q=55" alt="Elena Vasquez" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?fm=webp&w=800&q=55" alt="Elena Vasquez" loading="lazy" decoding="async">
           </div>
           <div class="farmer-info">
             <h3>Elena Vasquez</h3>
@@ -174,7 +174,7 @@
         <!-- Farmer 4 -->
         <div class="farmer-card" data-specialty="dairy">
           <div class="farmer-img-box">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fm=webp&fit=crop&w=800&q=55" alt="Marcus Henderson" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fm=webp&w=800&q=55" alt="Marcus Henderson" loading="lazy" decoding="async">
           </div>
           <div class="farmer-info">
             <h3>Marcus Henderson</h3>
@@ -244,7 +244,7 @@
           </div>
         </div>
         <div>
-          <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?fm=webp&fit=crop&w=800&q=55" alt="Farm audit" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md); width: 100%;" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?fm=webp&w=800&q=55" alt="Farm audit" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md); width: 100%;" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -272,9 +272,21 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="logo.webp" alt="Agro - Organic Farm" class="footer-brand-img">
-          <p>Connecting health-conscious communities directly with verified organic farmers, clean soil practices, and heritage whole foods.</p>
+          <a href="index.html" class="footer-brand-link" aria-label="Agro Farm - Back to homepage">
+            <img src="logo.webp" alt="Agro - Organic Farm" class="footer-brand-img">
+          </a>
+          <p>
+            Agro is an ethical agriculture platform connecting health-conscious individuals and restaurants directly with certified organic farmers, clean soil practices, and heritage crops.
+          </p>
+          <div class="topbar-socials">
+            <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+            <a href="404.html"><i class="fab fa-twitter"></i></a>
+            <a href="404.html"><i class="fab fa-instagram"></i></a>
+            <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+            <a href="404.html"><i class="fab fa-youtube"></i></a>
+          </div>
         </div>
+
         <div class="footer-col">
           <h3>Explore Pages</h3>
           <ul>
@@ -285,23 +297,49 @@
             <li><a href="services.html">Service</a></li>
           </ul>
         </div>
+
         <div class="footer-col">
-          <h3>Farmer Relations</h3>
-          <ul>
-            <li><a href="#">Grower Handbook</a></li>
-            <li><a href="#">Soil Lab Submissions</a></li>
-            <li><a href="#">Cold Storage Schedule</a></li>
-            <li><a href="#">Fair Trade Audits</a></li>
-          </ul>
+          <h3>Contact Us</h3>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>742 Evergreen Terrace, Farm District, California 90210</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+1 (800) 456-7890</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>support@agro-farm.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-clock"></i>
+            <span>Mon - Sat: 07:00 AM - 08:00 PM</span>
+          </div>
         </div>
+
         <div class="footer-col">
-          <h3>Contact Co-op</h3>
-          <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><span>+1 (800) 456-7890</span></div>
-          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>farmers@agro-farm.com</span></div>
+          <h3>Farm Gallery</h3>
+          <div class="footer-gallery">
+            <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?fm=webp&w=200&q=55" alt="Farm Photo 1" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?fm=webp&w=200&q=55" alt="Farm Photo 2" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?fm=webp&w=200&q=55" alt="Farm Photo 3" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?fm=webp&w=200&q=55" alt="Farm Photo 4" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?fm=webp&w=200&q=55" alt="Farm Photo 5" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?fm=webp&w=200&q=55" alt="Farm Photo 6" loading="lazy" decoding="async">
+          </div>
         </div>
       </div>
+
       <div class="footer-bottom">
         <p>&copy; 2026 Agro - Agriculture & Organic Food Marketplace. All rights reserved.</p>
+        <div class="payment-methods">
+          <i class="fab fa-cc-visa" title="Visa"></i>
+          <i class="fab fa-cc-mastercard" title="MasterCard"></i>
+          <i class="fab fa-cc-amex" title="American Express"></i>
+          <i class="fab fa-cc-paypal" title="PayPal"></i>
+          <i class="fab fa-apple-pay" title="Apple Pay"></i>
+        </div>
       </div>
     </div>
   </footer>
@@ -325,7 +363,9 @@
   </aside>
 
   <div class="toast-container" id="toastContainer"></div>
-  <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="app.js"></script>
   <script>
     function filterFarmers(specialty, btn) {
       document.querySelectorAll('.filter-pills .filter-pill').forEach(b => b.classList.remove('active'));
