@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Addresses | Agro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Dashboard -->
+  <div class="dashboard-wrap" id="userDashboard">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-brand">
+        <img src="logo.webp" alt="Agro - Organic Farm" class="sidebar-brand-img">
+        <button class="dash-sidebar-close" id="dashSidebarClose" aria-label="Close sidebar navigation">&times;</button>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="user-dashboard.html"><i class="fas fa-th-large"></i> Overview</a>
+        <a href="user-orders.html"><i class="fas fa-shopping-basket"></i> My Orders</a>
+        <a href="user-wishlist.html"><i class="fas fa-heart"></i> Wishlist</a>
+        <a href="user-addresses.html" class="active"><i class="fas fa-map-marker-alt"></i> Addresses</a>
+        <a href="user-marketplace.html"><i class="fas fa-store"></i> Browse Marketplace</a>
+        <a href="user-support.html"><i class="fas fa-headset"></i> Support</a>
+      </nav>
+
+      <div class="sidebar-logout">
+        <nav class="sidebar-menu">
+          <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <div class="dashboard-topbar">
+        <div class="dash-topbar-header">
+          <div class="dash-header-left">
+            <button class="dash-menu-toggle" id="dashMenuToggle" aria-label="Open sidebar menu">
+              <i class="fas fa-bars"></i>
+            </button>
+            <a href="index.html" class="dash-mobile-logo">
+              <img src="logo.webp" alt="Agro - Organic Farm">
+            </a>
+          </div>
+          <div class="user-chip">
+            <div class="avatar">C</div>
+          <div class="user-meta">
+            <strong>user@agro-farm.com</strong>
+            <span>Customer Account</span>
+          </div>
+        </div>
+        </div>
+        <div class="dash-topbar-title">
+          <h1>My Addresses</h1>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Manage your delivery and billing details.</p>
+        </div>
+      </div>
+
+      <div class="dash-panel">
+        <div class="panel-head">
+          <h2>Delivery Address</h2>
+          <a href="404.html" class="btn btn-outline-dark btn-sm" style="padding: 8px 18px; font-size: 0.85rem;">
+            <i class="fas fa-plus"></i> Add New
+          </a>
+        </div>
+        <div class="address-card" style="display: flex; gap: 16px; align-items: flex-start; padding: 18px 22px; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--white); margin-bottom: 16px;">
+          <i class="fas fa-home" style="color: var(--primary); font-size: 1.4rem; margin-top: 4px;"></i>
+          <div>
+            <h4 style="font-family: var(--font-serif); margin-bottom: 6px;">Home - Primary</h4>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">
+              Jane Doe, 742 Evergreen Terrace, Farm District, California 90210
+            </p>
+          </div>
+        </div>
+        <div class="address-card" style="display: flex; gap: 16px; align-items: flex-start; padding: 18px 22px; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--white);">
+          <i class="fas fa-briefcase" style="color: var(--primary); font-size: 1.4rem; margin-top: 4px;"></i>
+          <div>
+            <h4 style="font-family: var(--font-serif); margin-bottom: 6px;">Work - Secondary</h4>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">
+              Jane Doe, 18 Orchard Lane, Suite 200, Riverside, California 92501
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Dashboard Backdrop Overlay -->
+  <div class="dash-overlay" id="dashOverlay"></div>
+
+  <!-- Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Harvest Basket</h3>
+      <button class="close-drawer-btn" id="closeCartBtn">&times;</button>
+    </div>
+    <div class="cart-items-list" id="cartItems">
+      <div class="empty-cart-msg"><i class="fas fa-shopping-basket"></i><h4>Your basket is empty</h4></div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span>Subtotal:</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="cart-actions">
+        <button class="btn btn-primary" id="checkoutBtn"><span>Proceed to Checkout</span><i class="fas fa-lock"></i></button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="app.js"></script>
+</body>
+</html>

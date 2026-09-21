@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Farmers - Meet the Agro Organic Growers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header-main">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="logo.webp" alt="Agro - Organic Farm" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Farm</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="services.html">Service</a>
+      </nav>
+
+      <div class="header-right">
+        <a href="404.html" class="nav-icon-btn" title="Wishlist" aria-label="Wishlist">
+          <i class="fas fa-heart"></i>
+          <span class="badge-count" id="wishlistBadge">0</span>
+        </a>
+        <a href="404.html" class="nav-icon-btn" title="Shopping Cart" aria-label="Shopping Cart">
+          <i class="fas fa-shopping-basket"></i>
+          <span class="badge-count" id="cartBadge">0</span>
+        </a>
+        <a href="404.html" class="btn btn-primary header-cta-btn">
+          <span>Shop Fresh</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <button class="nav-icon-btn login-icon-btn" id="loginBtn" title="Login / Account" aria-label="Login">
+          <i class="fas fa-user"></i>
+        </button>
+
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 1: Page Banner -->
+  <section class="page-banner">
+    <div class="container">
+      <h1>Meet Our Master Farmers</h1>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Grower Directory & Profiles</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Cooperative Impact Manifesto -->
+  <section style="padding: 70px 0; background: var(--white);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+        <div>
+          <span class="title-tagline"><i class="fas fa-heart"></i> Empowering Agriculture</span>
+          <h2 class="section-title">Putting Fair Returns Directly Into The Hands Of Growers</h2>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">
+            In traditional grocery logistics, small family farmers often receive less than 14 cents on the dollar. Agro’s cooperative model flips the balance completely, returning up to 78% of retail sales straight to the farm gate.
+          </p>
+          <p style="color: var(--text-muted); margin-bottom: 24px;">
+            This economic stability allows our growers to invest in perennial cover crops, invest in solar pump systems, and pass down chemical-free land to their children with pride.
+          </p>
+          <div style="display: flex; gap: 20px;">
+            <div>
+              <h3 style="font-size: 2.2rem; font-family: var(--font-serif); color: var(--primary);">78%</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Direct Farmer Margin</p>
+            </div>
+            <div>
+              <h3 style="font-size: 2.2rem; font-family: var(--font-serif); color: var(--accent);">100%</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Certified Bio Inputs</p>
+            </div>
+            <div>
+              <h3 style="font-size: 2.2rem; font-family: var(--font-serif); color: var(--secondary);">24h</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Harvest-to-Door</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?fm=webp&fit=crop&w=700&q=35" alt="Farmer holding produce" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md); width: 100%;" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Interactive Farmer Directory Filter -->
+  <section style="padding: 40px 0 20px; background: var(--bg-light);">
+    <div class="container">
+      <div style="text-center; margin-bottom: 30px;" class="text-center">
+        <span class="title-tagline"><i class="fas fa-filter"></i> Regional Growers</span>
+        <h2 class="section-title">Browse Growers By Specialty</h2>
+      </div>
+      <div class="filter-pills">
+        <button class="filter-pill active" onclick="filterFarmers('all', this)">All Growers (1,200+)</button>
+        <button class="filter-pill" onclick="filterFarmers('vegetable', this)">Vegetable Farms</button>
+        <button class="filter-pill" onclick="filterFarmers('orchard', this)">Fruit Orchards</button>
+        <button class="filter-pill" onclick="filterFarmers('apiary', this)">Honey & Apiaries</button>
+        <button class="filter-pill" onclick="filterFarmers('dairy', this)">Pasture Dairy</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Comprehensive Farmer Profiles Grid -->
+  <section style="padding: 30px 0 90px; background: var(--bg-light);">
+    <div class="container">
+      <div class="farmers-grid" id="farmersDirectoryGrid">
+        <!-- Farmer 1 -->
+        <div class="farmer-card" data-specialty="vegetable">
+          <div class="farmer-img-box">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?fm=webp&fit=crop&w=800&q=55" alt="David Miller" loading="lazy" decoding="async">
+          </div>
+          <div class="farmer-info">
+            <h3>David Miller</h3>
+            <div class="farmer-role">Green Valley Farms &bull; 85 Acres</div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Specializes in heirloom bell peppers, purple carrots, and organic root squashes.</p>
+            <span style="display: inline-block; background: var(--primary-bg); color: var(--primary); padding: 4px 10px; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; margin-bottom: 14px;">Organic Since 1998</span>
+            <div class="farmer-socials">
+              <a href="404.html"><i class="fab fa-twitter"></i></a>
+              <a href="404.html"><i class="fab fa-instagram"></i></a>
+              <a href="shop.html" title="View Crops"><i class="fas fa-shopping-basket"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Farmer 2 -->
+        <div class="farmer-card" data-specialty="apiary">
+          <div class="farmer-img-box">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?fm=webp&fit=crop&w=800&q=45" alt="Sarah Jenkins" loading="lazy" decoding="async">
+          </div>
+          <div class="farmer-info">
+            <h3>Sarah Jenkins</h3>
+            <div class="farmer-role">Sunny Ridge Apiaries &bull; 140 Hives</div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Harvests raw honeycomb, propolis, and unpasteurized wildflower honey infusions.</p>
+            <span style="display: inline-block; background: var(--primary-bg); color: var(--primary); padding: 4px 10px; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; margin-bottom: 14px;">Pollinator Sanctuary</span>
+            <div class="farmer-socials">
+              <a href="404.html"><i class="fab fa-twitter"></i></a>
+              <a href="404.html"><i class="fab fa-instagram"></i></a>
+              <a href="shop.html" title="View Honey"><i class="fas fa-shopping-basket"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Farmer 3 -->
+        <div class="farmer-card" data-specialty="orchard">
+          <div class="farmer-img-box">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?fm=webp&fit=crop&w=800&q=55" alt="Elena Vasquez" loading="lazy" decoding="async">
+          </div>
+          <div class="farmer-info">
+            <h3>Elena Vasquez</h3>
+            <div class="farmer-role">Coastal Berry Orchards &bull; 45 Acres</div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Cultivates pesticide-free sweet strawberries, blueberries, and heritage fig trees.</p>
+            <span style="display: inline-block; background: var(--primary-bg); color: var(--primary); padding: 4px 10px; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; margin-bottom: 14px;">Rainwater Harvested</span>
+            <div class="farmer-socials">
+              <a href="404.html"><i class="fab fa-twitter"></i></a>
+              <a href="404.html"><i class="fab fa-instagram"></i></a>
+              <a href="shop.html" title="View Berries"><i class="fas fa-shopping-basket"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Farmer 4 -->
+        <div class="farmer-card" data-specialty="dairy">
+          <div class="farmer-img-box">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fm=webp&fit=crop&w=800&q=55" alt="Marcus Henderson" loading="lazy" decoding="async">
+          </div>
+          <div class="farmer-info">
+            <h3>Marcus Henderson</h3>
+            <div class="farmer-role">Rolling Hills Pastures &bull; 210 Acres</div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Pasture-raised Jersey dairy cows, raw artisanal milk, and grass-fed butter.</p>
+            <span style="display: inline-block; background: var(--primary-bg); color: var(--primary); padding: 4px 10px; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; margin-bottom: 14px;">100% Grass Fed Certified</span>
+            <div class="farmer-socials">
+              <a href="404.html"><i class="fab fa-twitter"></i></a>
+              <a href="404.html"><i class="fab fa-instagram"></i></a>
+              <a href="shop.html" title="View Dairy"><i class="fas fa-shopping-basket"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: A Day in the Life on an Organic Farm -->
+  <section style="padding: 80px 0; background: var(--white);">
+    <div class="container">
+      <div class="text-center">
+        <span class="title-tagline"><i class="fas fa-sun"></i> Dawn to Dusk</span>
+        <h2 class="section-title">A Day In The Life Of An Agro Farmer</h2>
+        <p class="section-subtitle">Follow the meticulous rhythm of natural agriculture.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+        <div style="background: var(--bg-light); padding: 30px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <span style="color: var(--accent); font-weight: 800; font-size: 1.2rem; display: block; margin-bottom: 8px;">05:00 AM</span>
+          <h4 style="color: var(--secondary); margin-bottom: 8px;">Dawn Dew Picking</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Vegetables are plucked when morning dew preserves peak cell hydration and cellular crunch.</p>
+        </div>
+        <div style="background: var(--bg-light); padding: 30px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <span style="color: var(--accent); font-weight: 800; font-size: 1.2rem; display: block; margin-bottom: 8px;">08:30 AM</span>
+          <h4 style="color: var(--secondary); margin-bottom: 8px;">Solar Cold Transfer</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Crops are sorted into breathable crates and placed in on-farm solar chill units within 90 minutes.</p>
+        </div>
+        <div style="background: var(--bg-light); padding: 30px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <span style="color: var(--accent); font-weight: 800; font-size: 1.2rem; display: block; margin-bottom: 8px;">01:00 PM</span>
+          <h4 style="color: var(--secondary); margin-bottom: 8px;">Compost & Soil Inoculation</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Spraying aerobic microbial tea onto harvested beds to replenish nitrogen naturally before replanting.</p>
+        </div>
+        <div style="background: var(--bg-light); padding: 30px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <span style="color: var(--accent); font-weight: 800; font-size: 1.2rem; display: block; margin-bottom: 8px;">06:00 PM</span>
+          <h4 style="color: var(--secondary); margin-bottom: 8px;">Refrigerated Dispatch</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Our fleet collects crates from regional farm hubs for night sorting and next-morning doorstep delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Farmer Verification & Soil Testing Protocol -->
+  <section style="padding: 80px 0; background: var(--primary-bg);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+        <div>
+          <span class="title-tagline"><i class="fas fa-shield-alt"></i> Total Accountability</span>
+          <h2 class="section-title">How We Verify Every Single Acre</h2>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">
+            Before any farmer can sell through the Agro Marketplace, their land undergoes rigorous biological profiling:
+          </p>
+          <div class="about-checklist" style="grid-template-columns: 1fr;">
+            <div class="about-check-item"><i class="fas fa-check-circle"></i> 3-Year Zero-Synthetic Chemical Land History Certification</div>
+            <div class="about-check-item"><i class="fas fa-check-circle"></i> Unannounced Seasonal Soil Core Sampling for 280+ Chemical Residues</div>
+            <div class="about-check-item"><i class="fas fa-check-circle"></i> Groundwater Heavy Metal & Nitrate Filtration Audits</div>
+            <div class="about-check-item"><i class="fas fa-check-circle"></i> Animal Welfare & Humane Free-Range Space Audits</div>
+          </div>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?fm=webp&fit=crop&w=800&q=55" alt="Farm audit" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md); width: 100%;" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Become a Partner Farmer Application -->
+  <section style="padding: 90px 0; background: var(--white);">
+    <div class="container">
+      <div style="background: linear-gradient(135deg, var(--secondary), #171f16); border-radius: var(--radius-lg); padding: 60px 40px; color: var(--white); text-align: center; max-width: 900px; margin: 0 auto; box-shadow: var(--shadow-lg);">
+        <span style="background: var(--accent); color: var(--white); padding: 4px 16px; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Join Agro Co-op</span>
+        <h2 style="font-family: var(--font-serif); font-size: 2.6rem; margin: 16px 0;">Are You An Organic Grower?</h2>
+        <p style="color: #ccd8ca; font-size: 1.05rem; max-width: 650px; margin: 0 auto 30px; line-height: 1.7;">
+          Gain immediate access to over 85,000 conscious consumers, solar cold storage facilities, and guaranteed fair-trade offtake agreements.
+        </p>
+        <a href="contact.html" class="btn btn-accent">
+          <span>Apply to Join Cooperative</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Global Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="logo.webp" alt="Agro - Organic Farm" class="footer-brand-img">
+          <p>Connecting health-conscious communities directly with verified organic farmers, clean soil practices, and heritage whole foods.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Explore Pages</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Farm</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html">Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Farmer Relations</h3>
+          <ul>
+            <li><a href="#">Grower Handbook</a></li>
+            <li><a href="#">Soil Lab Submissions</a></li>
+            <li><a href="#">Cold Storage Schedule</a></li>
+            <li><a href="#">Fair Trade Audits</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact Co-op</h3>
+          <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><span>+1 (800) 456-7890</span></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>farmers@agro-farm.com</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Agro - Agriculture & Organic Food Marketplace. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Harvest Basket</h3>
+      <button class="close-drawer-btn" id="closeCartBtn">&times;</button>
+    </div>
+    <div class="cart-items-list" id="cartItems">
+      <div class="empty-cart-msg"><i class="fas fa-shopping-basket"></i><h4>Your basket is empty</h4></div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span>Subtotal:</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="cart-actions">
+        <button class="btn btn-primary" id="checkoutBtn"><span>Proceed to Checkout</span><i class="fas fa-lock"></i></button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="app.js"></script>
+  <script>
+    function filterFarmers(specialty, btn) {
+      document.querySelectorAll('.filter-pills .filter-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('#farmersDirectoryGrid .farmer-card');
+      cards.forEach(card => {
+        if (specialty === 'all' || card.dataset.specialty === specialty) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

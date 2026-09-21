@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmers | Agro Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Dashboard -->
+  <div class="dashboard-wrap" id="adminDashboard">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-brand">
+        <img src="logo.webp" alt="Agro - Organic Farm" class="sidebar-brand-img">
+        <button class="dash-sidebar-close" id="dashSidebarClose" aria-label="Close sidebar navigation">&times;</button>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="admin-dashboard.html"><i class="fas fa-th-large"></i> Overview</a>
+        <a href="admin-orders.html"><i class="fas fa-shopping-basket"></i> Orders</a>
+        <a href="admin-products.html"><i class="fas fa-box-open"></i> Products</a>
+        <a href="admin-farmers.html" class="active"><i class="fas fa-tractor"></i> Farmers</a>
+        <a href="admin-customers.html"><i class="fas fa-users"></i> Customers</a>
+        <a href="admin-reports.html"><i class="fas fa-chart-line"></i> Reports</a>
+      </nav>
+
+      <div class="sidebar-logout">
+        <nav class="sidebar-menu">
+          <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <div class="dashboard-topbar">
+        <div class="dash-topbar-header">
+          <div class="dash-header-left">
+            <button class="dash-menu-toggle" id="dashMenuToggle" aria-label="Open sidebar menu">
+              <i class="fas fa-bars"></i>
+            </button>
+            <a href="index.html" class="dash-mobile-logo">
+              <img src="logo.webp" alt="Agro - Organic Farm">
+            </a>
+          </div>
+          <div class="user-chip">
+            <div class="avatar">A</div>
+          <div class="user-meta">
+            <strong>admin@agro-farm.com</strong>
+            <span>Administrator</span>
+          </div>
+        </div>
+        </div>
+        <div class="dash-topbar-title">
+          <h1>Farmer Network</h1>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Review certified growers and their farm listings.</p>
+        </div>
+      </div>
+
+      <div class="dash-panel">
+        <div class="panel-head">
+          <h2>Registered Farmers</h2>
+          <a href="404.html" class="btn btn-outline-dark btn-sm" style="padding: 8px 18px; font-size: 0.85rem;">
+            <i class="fas fa-plus"></i> Add Farmer
+          </a>
+        </div>
+        <table class="dash-table">
+          <thead>
+            <tr>
+              <th>Farmer</th>
+              <th>Farm</th>
+              <th>Products</th>
+              <th>Rating</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Maria Silva</strong></td>
+              <td>Silva Orchards</td>
+              <td>12</td>
+              <td>4.9 <i class="fas fa-star" style="color: #f4a104; font-size: 0.8rem;"></i></td>
+              <td><span class="status-pill delivered">Approved</span></td>
+            </tr>
+            <tr>
+              <td><strong>James Ortega</strong></td>
+              <td>Green Valley Bistro Farms</td>
+              <td>8</td>
+              <td>4.7 <i class="fas fa-star" style="color: #f4a104; font-size: 0.8rem;"></i></td>
+              <td><span class="status-pill delivered">Approved</span></td>
+            </tr>
+            <tr>
+              <td><strong>Amara Okafor</strong></td>
+              <td>Sunrise Apiaries</td>
+              <td>5</td>
+              <td>5.0 <i class="fas fa-star" style="color: #f4a104; font-size: 0.8rem;"></i></td>
+              <td><span class="status-pill delivered">Approved</span></td>
+            </tr>
+            <tr>
+              <td><strong>Diego Ramos</strong></td>
+              <td>Ramos Harvest Fields</td>
+              <td>3</td>
+              <td>4.5 <i class="fas fa-star" style="color: #f4a104; font-size: 0.8rem;"></i></td>
+              <td><span class="status-pill pending">Pending Review</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <!-- Dashboard Backdrop Overlay -->
+  <div class="dash-overlay" id="dashOverlay"></div>
+
+  <!-- Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Harvest Basket</h3>
+      <button class="close-drawer-btn" id="closeCartBtn">&times;</button>
+    </div>
+    <div class="cart-items-list" id="cartItems">
+      <div class="empty-cart-msg"><i class="fas fa-shopping-basket"></i><h4>Your basket is empty</h4></div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span>Subtotal:</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="cart-actions">
+        <button class="btn btn-primary" id="checkoutBtn"><span>Proceed to Checkout</span><i class="fas fa-lock"></i></button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In | Agro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+
+  <div class="auth-wrap">
+      <div class="login-modal" style="margin: 0 auto;">
+        <div class="login-modal-header">
+          <img src="logo.webp" alt="Agro - Organic Farm" class="login-brand-logo">
+          <h3>Welcome Back</h3>
+          <p>Sign in to your Agro account</p>
+        </div>
+
+        <div class="role-switch" id="loginPageRoleSwitch">
+          <button type="button" class="role-btn active" data-role="user">
+            <i class="fas fa-user"></i> Customer
+          </button>
+          <button type="button" class="role-btn" data-role="admin">
+            <i class="fas fa-user-shield"></i> Admin
+          </button>
+        </div>
+
+        <form id="loginPageForm">
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" class="form-control" id="loginPageEmail" placeholder="you@agro-farm.com" required>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" id="loginPagePassword" placeholder="Enter your password" required>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <span>Sign In</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+
+        <p class="login-hint" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 16px;">
+          <i class="fas fa-info-circle"></i> Demo: use <strong>user@agro-farm.com</strong> / <strong>user123</strong> for Customer, <strong>admin@agro-farm.com</strong> / <strong>admin123</strong> for Admin.
+        </p>
+
+        <div style="display: flex; align-items: center; gap: 12px; margin: 20px 0 14px;">
+          <span style="flex: 1; height: 1px; background: var(--border-color);"></span>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">New to Agro?</span>
+          <span style="flex: 1; height: 1px; background: var(--border-color);"></span>
+        </div>
+        <a href="create-account.html" class="btn btn-outline-dark" style="width: 100%;">
+          <i class="fas fa-user-plus"></i> Create Account
+        </a>
+      </div>
+  </div>
+
+  <!-- Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart Drawer">
+    <div class="cart-header">
+      <h3>Your Harvest Basket</h3>
+      <button class="close-drawer-btn" id="closeCartBtn" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-items-list" id="cartItems">
+      <div class="empty-cart-msg">
+        <i class="fas fa-shopping-basket"></i>
+        <h4>Your basket is empty</h4>
+        <p>Browse fresh vegetables, organic fruits, and artisan pantry items to start filling it.</p>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal:</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <div class="cart-actions">
+        <button class="btn btn-primary" id="checkoutBtn">
+          <span>Proceed to Checkout</span>
+          <i class="fas fa-lock"></i>
+        </button>
+        <button class="btn btn-outline-dark" onclick="closeCart()">
+          <span>Continue Shopping</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Script -->
+  <script src="app.js"></script>
+</body>
+</html>

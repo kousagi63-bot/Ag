@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Agro - Agriculture & Organic Food Cooperative</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Main Navigation Header -->
+  <header class="header-main">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="logo.webp" alt="Agro - Organic Farm" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About Farm</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="services.html">Service</a>
+      </nav>
+
+      <div class="header-right">
+        <a href="404.html" class="nav-icon-btn" title="Wishlist">
+          <i class="fas fa-heart"></i>
+          <span class="badge-count" id="wishlistBadge">0</span>
+        </a>
+        <a href="404.html" class="nav-icon-btn" title="Shopping Cart">
+          <i class="fas fa-shopping-basket"></i>
+          <span class="badge-count" id="cartBadge">0</span>
+        </a>
+        <a href="404.html" class="btn btn-primary header-cta-btn">
+          <span>Shop Fresh</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <button class="nav-icon-btn login-icon-btn" id="loginBtn" title="Login / Account" aria-label="Login">
+          <i class="fas fa-user"></i>
+        </button>
+
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 1: Page Banner & Breadcrumb -->
+  <section class="page-banner">
+    <div class="container">
+      <h1>Our Agricultural Heritage</h1>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>About Agro Cooperative</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Our Story (Origin, Founders, Vision) -->
+  <section class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?fm=webp&fit=crop&w=800&q=55" alt="Agro Fields" class="about-img-main" loading="lazy" decoding="async">
+          <div class="about-badge-card">
+            <h3>1998</h3>
+            <p>Founded on Regenerative Principles</p>
+          </div>
+        </div>
+        <div class="about-content">
+          <span class="title-tagline"><i class="fas fa-seedling"></i> Origin & Legacy</span>
+          <h2 class="section-title">25+ Years of Preserving Soil, Seed & Community</h2>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">
+            In 1998, Agro started with 12 acres of family land and a firm conviction: that modern industrial agriculture was depleting essential soil microbiomes and stripping natural produce of taste and vital nutrition.
+          </p>
+          <p style="color: var(--text-muted); margin-bottom: 24px;">
+            Today, our certified organic cooperative connects over 1,200 small-scale generational farmsteads across the nation. By pooling decentralized cold storage, fair trade pricing, and direct-to-consumer logistics, we give smallholders the power to farm without synthetic chemicals.
+          </p>
+          <div class="about-checklist">
+            <div class="about-check-item"><i class="fas fa-check-circle"></i> 100% Transparent Supply Chain</div>
+            <div class="about-check-item"><i class="fas fa-check-circle"></i> Heirloom Seed Preservation</div>
+            <div class="about-check-item"><i class="fas fa-check-circle"></i> Fair Trade Farmer Compensation</div>
+            <div class="about-check-item"><i class="fas fa-check-circle"></i> Zero Hazardous Runoff</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Core Agricultural Philosophies -->
+  <section style="padding: 80px 0; background: var(--bg-light);">
+    <div class="container">
+      <div class="text-center">
+        <span class="title-tagline"><i class="fas fa-globe-americas"></i> Guiding Principles</span>
+        <h2 class="section-title">Our 4 Pillars of Sustainable Cultivation</h2>
+        <p class="section-subtitle">How we harmonize traditional agronomy wisdom with high-tech organic science.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card" style="flex-direction: column; text-align: center; padding: 36px 24px;">
+          <div class="feature-icon-wrapper" style="margin-bottom: 16px;"><i class="fas fa-leaf"></i></div>
+          <div class="feature-text">
+            <h3>Living Microbiome Soil</h3>
+            <p>We nurture billions of beneficial microorganisms per square foot via aerobic vermicomposting and zero deep-till practices.</p>
+          </div>
+        </div>
+        <div class="feature-card" style="flex-direction: column; text-align: center; padding: 36px 24px;">
+          <div class="feature-icon-wrapper" style="margin-bottom: 16px;"><i class="fas fa-tint"></i></div>
+          <div class="feature-text">
+            <h3>Closed-Loop Water Stewardship</h3>
+            <p>Solar-powered micro-drip irrigation systems that reduce regional water consumption by 62% compared to flood canals.</p>
+          </div>
+        </div>
+        <div class="feature-card" style="flex-direction: column; text-align: center; padding: 36px 24px;">
+          <div class="feature-icon-wrapper" style="margin-bottom: 16px;"><i class="fas fa-dna"></i></div>
+          <div class="feature-text">
+            <h3>Heirloom Genetic Bank</h3>
+            <p>Preserving over 400 ancestral plant and vegetable seed varieties naturally resistant to local droughts and pests.</p>
+          </div>
+        </div>
+        <div class="feature-card" style="flex-direction: column; text-align: center; padding: 36px 24px;">
+          <div class="feature-icon-wrapper" style="margin-bottom: 16px;"><i class="fas fa-hand-holding-heart"></i></div>
+          <div class="feature-text">
+            <h3>Ethical Human Labor</h3>
+            <p>Living wages, healthcare support, and continuing educational agronomy workshops for every farmer in our network.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Interactive Historical Timeline -->
+  <section style="padding: 90px 0; background: var(--white);">
+    <div class="container">
+      <div class="text-center">
+        <span class="title-tagline"><i class="fas fa-history"></i> Milestones</span>
+        <h2 class="section-title">The Evolution of Our Cooperative</h2>
+        <p class="section-subtitle">A journey of dedication, regenerative growth, and community impact.</p>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <span class="timeline-year">1998</span>
+            <h4>Founding 12 Acres</h4>
+            <p>David Miller establishes Agro on legacy family land in the valley with an initial harvest of organic heirloom carrots and squash.</p>
+          </div>
+        </div>
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <span class="timeline-year">2005</span>
+            <h4>First 100 Farmers Co-op</h4>
+            <p>Formed the regional bio-organic union to establish shared composting yards, seed exchanges, and mutual cold houses.</p>
+          </div>
+        </div>
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <span class="timeline-year">2014</span>
+            <h4>USDA & EU Organic Certification</h4>
+            <p>Every single farm in our alliance achieved gold accreditation with 0.00% synthetic chemical residues verified by third-party testing.</p>
+          </div>
+        </div>
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <span class="timeline-year">2020</span>
+            <h4>Direct Digital Marketplace</h4>
+            <p>Launched direct-to-home farm-to-table delivery, eliminating unnecessary middlemen and delivering crops within 24 hours of harvest.</p>
+          </div>
+        </div>
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <span class="timeline-year">2026</span>
+            <h4>Nationwide Eco Cold Chain</h4>
+            <p>Operating over 1,200 verified partner farms delivering fresh harvests to more than 85,000 households weekly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: By The Numbers / Impact Counters -->
+  <section style="padding: 80px 0; background: var(--primary-bg);">
+    <div class="container">
+      <div class="text-center">
+        <span class="title-tagline"><i class="fas fa-chart-line"></i> Measurable Impact</span>
+        <h2 class="section-title">Cultivating Numbers That Matter</h2>
+        <p class="section-subtitle">Real metrics reflecting real environmental restoration and healthy tables.</p>
+      </div>
+
+      <div class="stat-counter-grid">
+        <div class="stat-counter-card">
+          <div class="counter-icon"><i class="fas fa-tractor"></i></div>
+          <h3>1,250+</h3>
+          <p>Verified Family Farms</p>
+        </div>
+        <div class="stat-counter-card">
+          <div class="counter-icon"><i class="fas fa-tree"></i></div>
+          <h3>34,000</h3>
+          <p>Acres of Restored Soil</p>
+        </div>
+        <div class="stat-counter-card">
+          <div class="counter-icon"><i class="fas fa-apple-alt"></i></div>
+          <h3>85,000+</h3>
+          <p>Families Fed Weekly</p>
+        </div>
+        <div class="stat-counter-card">
+          <div class="counter-icon"><i class="fas fa-seedling"></i></div>
+          <h3>420+</h3>
+          <p>Heritage Crop Species</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Certifications & Quality Accreditations -->
+  <section style="padding: 90px 0; background: var(--white);">
+    <div class="container">
+      <div class="text-center">
+        <span class="title-tagline"><i class="fas fa-certificate"></i> Verified Trust</span>
+        <h2 class="section-title">Accreditations & Bio Standards</h2>
+        <p class="section-subtitle">Strict compliance with the highest international organic safety guidelines.</p>
+      </div>
+
+      <div class="cert-grid">
+        <div class="cert-card">
+          <i class="fas fa-award"></i>
+          <h4>USDA Organic Certified</h4>
+          <p>Strict non-GMO verification, free from ionizing radiation, sewage sludge, and prohibited substances.</p>
+        </div>
+        <div class="cert-card">
+          <i class="fas fa-check-double"></i>
+          <h4>Demeter Biodynamic</h4>
+          <p>Honoring whole-farm organism methods, closed-loop composting, and astronomical seasonal planting cycles.</p>
+        </div>
+        <div class="cert-card">
+          <i class="fas fa-recycle"></i>
+          <h4>Rainforest Alliance</h4>
+          <p>Safeguarding surrounding river catchments, native bee habitats, and natural wildlife corridors.</p>
+        </div>
+        <div class="cert-card">
+          <i class="fas fa-balance-scale"></i>
+          <h4>Fair Trade Certified</h4>
+          <p>Guaranteeing equitable trade balances and direct financial security for rural cultivation families.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Agronomy & Leadership Team -->
+  <section style="padding: 90px 0; background: var(--bg-light);">
+    <div class="container">
+      <div class="text-center">
+        <span class="title-tagline"><i class="fas fa-users"></i> Our Agronomists</span>
+        <h2 class="section-title">The Soil Experts Behind Agro</h2>
+        <p class="section-subtitle">Meet the botanists, permaculturists, and agricultural engineers steering our mission.</p>
+      </div>
+
+      <div class="farmers-grid">
+        <div class="farmer-card">
+          <div class="farmer-img-box">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?fm=webp&fit=crop&w=800&q=55" alt="David Miller" loading="lazy" decoding="async">
+          </div>
+          <div class="farmer-info">
+            <h3>David Miller</h3>
+            <div class="farmer-role">Founder & Chief Agriculturalist</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Pioneered heirloom crop rotative cycles and soil microbiological regeneration.</p>
+          </div>
+        </div>
+
+        <div class="farmer-card">
+          <div class="farmer-img-box">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?fm=webp&fit=crop&w=800&q=55" alt="Dr. Elena Rostova" loading="lazy" decoding="async">
+          </div>
+          <div class="farmer-info">
+            <h3>Dr. Elena Rostova</h3>
+            <div class="farmer-role">Head of Soil Microbiology</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Ph.D. in Microbial Agronomy specializing in zero-chemical pest deterrents.</p>
+          </div>
+        </div>
+
+        <div class="farmer-card">
+          <div class="farmer-img-box">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fm=webp&fit=crop&w=800&q=55" alt="Marcus Henderson" loading="lazy" decoding="async">
+          </div>
+          <div class="farmer-info">
+            <h3>Marcus Henderson</h3>
+            <div class="farmer-role">Director of Sustainable Supply</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Oversees 100% solar cold transit hubs to preserve nutrients from dawn harvest to door.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Sustainable Ecological Dashboard -->
+  <section style="padding: 80px 0; background: var(--secondary); color: var(--white);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+        <div>
+          <span class="title-tagline" style="background: rgba(255,255,255,0.1); color: #ffd166;">
+            <i class="fas fa-leaf"></i> Planetary Stewardship
+          </span>
+          <h2 style="font-family: var(--font-serif); font-size: 2.8rem; margin-bottom: 20px;">Carbon Negative Farm Operations by 2028</h2>
+          <p style="color: #ccd8ca; margin-bottom: 24px; line-height: 1.7;">
+            Through deliberate multi-crop canopy planting and deep root perennial grasses, Agro farms actively sequester 4.2 tons of atmospheric carbon per acre every calendar year.
+          </p>
+          <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+            <div>
+              <h3 style="font-size: 2rem; color: #a0d892; font-family: var(--font-serif);">62%</h3>
+              <p style="color: #aebdb0; font-size: 0.85rem;">Less Irrigation Water</p>
+            </div>
+            <div>
+              <h3 style="font-size: 2rem; color: #a0d892; font-family: var(--font-serif);">100%</h3>
+              <p style="color: #aebdb0; font-size: 0.85rem;">Biodegradable Crates</p>
+            </div>
+            <div>
+              <h3 style="font-size: 2rem; color: #a0d892; font-family: var(--font-serif);">Zero</h3>
+              <p style="color: #aebdb0; font-size: 0.85rem;">Synthetic Pesticides</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1584467735815-f778f274e296?fm=webp&fit=crop&w=800&q=45" alt="Eco Farm Composting and Soil" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); width: 100%;" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: Call to Action & Global Footer -->
+  <section class="newsletter-banner">
+    <div class="container">
+      <div class="newsletter-content">
+        <div class="newsletter-text">
+          <h2>Ready To Taste The Genuine Organic Difference?</h2>
+          <p>Order fresh crop bundles directly from our master growers today.</p>
+        </div>
+        <div>
+          <a href="404.html" class="btn btn-accent">
+            <span>Explore Farm Store</span>
+            <i class="fas fa-shopping-basket"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="logo.webp" alt="Agro - Organic Farm" class="footer-brand-img">
+          <p>Connecting health-conscious communities directly with verified organic farmers, clean soil practices, and heritage whole foods.</p>
+          <div class="topbar-socials">
+            <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+            <a href="404.html"><i class="fab fa-twitter"></i></a>
+            <a href="404.html"><i class="fab fa-instagram"></i></a>
+            <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Explore Pages</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Farm</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html">Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>742 Evergreen Terrace, Farm District</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+1 (800) 456-7890</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>contact@agro-farm.com</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Farm Gallery</h3>
+          <div class="footer-gallery">
+            <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?fm=webp&fit=crop&w=200&q=55" alt="Farm 1" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?fm=webp&fit=crop&w=200&q=55" alt="Farm 2" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?fm=webp&fit=crop&w=200&q=55" alt="Farm 3" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Agro - Agriculture & Organic Food Marketplace. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Harvest Basket</h3>
+      <button class="close-drawer-btn" id="closeCartBtn">&times;</button>
+    </div>
+    <div class="cart-items-list" id="cartItems">
+      <div class="empty-cart-msg"><i class="fas fa-shopping-basket"></i><h4>Your basket is empty</h4></div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span>Subtotal:</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="cart-actions">
+        <button class="btn btn-primary" id="checkoutBtn"><span>Proceed to Checkout</span><i class="fas fa-lock"></i></button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Quick View Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <button class="modal-close-btn" id="closeModalBtn">&times;</button>
+      <div id="modalContent" style="display: contents;"></div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="app.js"></script>
+</body>
+</html>

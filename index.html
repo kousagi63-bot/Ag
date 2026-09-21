@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agro - Agriculture & Organic Food Marketplace</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SECTION 1: Header & Main Navigation -->
+  <header class="header-main">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="logo.webp" alt="Agro - Organic Farm" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About Farm</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="services.html">Service</a>
+      </nav>
+
+      <div class="header-right">
+        <a href="404.html" class="nav-icon-btn" title="Wishlist" aria-label="Wishlist">
+          <i class="fas fa-heart"></i>
+          <span class="badge-count" id="wishlistBadge">0</span>
+        </a>
+
+        <a href="404.html" class="nav-icon-btn" title="Shopping Cart" aria-label="Shopping Cart">
+          <i class="fas fa-shopping-basket"></i>
+          <span class="badge-count" id="cartBadge">0</span>
+        </a>
+
+        <a href="404.html" class="btn btn-primary header-cta-btn">
+          <span>Shop Fresh</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <button class="nav-icon-btn login-icon-btn" id="loginBtn" title="Login / Account" aria-label="Login">
+          <i class="fas fa-user"></i>
+        </button>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 3: Hero Master Slider -->
+  <section class="hero-section" id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-seedling"></i> 100% Pure Organic Farm
+        </div>
+        <h2 class="hero-title">
+          Rooted in Nature, <br>
+          <span>Harvested with Care.</span>
+        </h2>
+        <p class="hero-desc">
+          Experience healthy living with premium farm-to-table organic vegetables, raw artisan honey, hand-picked seasonal fruits, and fresh pasture dairy directly sourced from sustainable family farms.
+        </p>
+        <div class="hero-btn-group">
+          <a href="404.html" class="btn btn-accent">
+            <span>Explore Produce</span>
+            <i class="fas fa-shopping-bag"></i>
+          </a>
+          <a href="404.html" class="btn btn-outline">
+            <span>Our Farm Story</span>
+            <i class="fas fa-play-circle"></i>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <h3>25+</h3>
+            <p>Years of Tradition</p>
+          </div>
+          <div class="hero-stat-item">
+            <h3>1,200+</h3>
+            <p>Verified Farmers</p>
+          </div>
+          <div class="hero-stat-item">
+            <h3>100%</h3>
+            <p>Organic Certified</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-floating-card">
+        <div class="floating-icon">
+          <i class="fas fa-award"></i>
+        </div>
+        <div class="floating-info">
+          <h4>Eco-Friendly Farming</h4>
+          <p>Zero synthetic chemicals or GMOs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Core Value Propositions & Trust Metrics -->
+  <section class="features-bar">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <i class="fas fa-shipping-fast"></i>
+          </div>
+          <div class="feature-text">
+            <h3>Same-Day Harvest Delivery</h3>
+            <p>Direct from local fields straight to your doorstep within hours.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="feature-text">
+            <h3>100% Certified Organic</h3>
+            <p>All produce verified strictly against international bio standards.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <div class="feature-text">
+            <h3>Direct Farmer Support</h3>
+            <p>Fair trade margins ensuring healthy agricultural livelihoods.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div class="feature-text">
+            <h3>Guaranteed Freshness</h3>
+            <p>Full satisfaction guarantee or prompt hassle-free replacement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: About Agro Heritage & Quality Promise -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?fm=webp&fit=crop&w=700&q=35" alt="Agro Organic Farmer in Field" class="about-img-main" loading="lazy" decoding="async">
+          <div class="about-badge-card">
+            <h3>25</h3>
+            <p>Years of Sustainable Agriculture</p>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <span class="title-tagline">
+            <i class="fas fa-apple-alt"></i> About Agro Farm
+          </span>
+          <h2 class="section-title">Cultivating Better Food For A Healthier Tomorrow</h2>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">
+            Agro was founded with a single mission: to reconnect families with real, whole foods nurtured naturally by regenerative soil and generational expertise.
+          </p>
+          <p style="color: var(--text-muted); margin-bottom: 24px;">
+            We partner with independent local farmers who embrace heritage seeds, natural composting, drip irrigation, and zero synthetic pesticides. Every crop is picked by hand when naturally ripe.
+          </p>
+
+          <div class="about-checklist">
+            <div class="about-check-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Regenerative Soil Care</span>
+            </div>
+            <div class="about-check-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Non-GMO Verified Seeds</span>
+            </div>
+            <div class="about-check-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Solar Powered Storage</span>
+            </div>
+            <div class="about-check-item">
+              <i class="fas fa-check-circle"></i>
+              <span>100% Compostable Packaging</span>
+            </div>
+          </div>
+
+          <a href="404.html" class="btn btn-outline-dark">
+            <span>Read Our Full Story</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Interactive Category Showcase -->
+  <section class="categories-section" id="categories">
+    <div class="container">
+      <div class="text-center">
+        <span class="title-tagline">
+          <i class="fas fa-th-large"></i> Fresh Selection
+        </span>
+        <h2 class="section-title">Explore Farm Categories</h2>
+        <p class="section-subtitle">
+          Browse our freshly picked crop assortments, pure farm pantry staples, and artisanal whole food selections.
+        </p>
+      </div>
+
+      <div class="category-grid">
+        <a href="404.html" class="category-card active">
+          <div class="cat-img-box">
+            <i class="fas fa-carrot"></i>
+          </div>
+          <h3>Vegetables</h3>
+          <span>48+ Farm Varieties</span>
+        </a>
+
+        <a href="404.html" class="category-card">
+          <div class="cat-img-box">
+            <i class="fas fa-lemon"></i>
+          </div>
+          <h3>Fresh Fruits</h3>
+          <span>35+ Seasonal Picks</span>
+        </a>
+
+        <a href="404.html" class="category-card">
+          <div class="cat-img-box">
+            <i class="fas fa-cheese"></i>
+          </div>
+          <h3>Dairy & Eggs</h3>
+          <span>20+ Pasture Items</span>
+        </a>
+
+        <a href="404.html" class="category-card">
+          <div class="cat-img-box">
+            <i class="fas fa-jar"></i>
+          </div>
+          <h3>Raw Honey & Jams</h3>
+          <span>15+ Sweet Treats</span>
+        </a>
+
+        <a href="404.html" class="category-card">
+          <div class="cat-img-box">
+            <i class="fas fa-wheat-awn"></i>
+          </div>
+          <h3>Grains & Cereals</h3>
+          <span>18+ Whole Grains</span>
+        </a>
+
+        <a href="404.html" class="category-card">
+          <div class="cat-img-box">
+            <i class="fas fa-mortar-pestle"></i>
+          </div>
+          <h3>Spices & Herbs</h3>
+          <span>25+ Fragrant Crops</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Featured Marketplace Store with Live Filter Tabs -->
+  <section class="marketplace-section" id="shop">
+    <div class="container">
+      <div class="text-center">
+        <span class="title-tagline">
+          <i class="fas fa-store"></i> Organic Marketplace
+        </span>
+        <h2 class="section-title">Fresh From Our Fields Today</h2>
+        <p class="section-subtitle">
+          Picked each dawn and delivered swiftly to preserve peak natural nutrients, aroma, and crispness.
+        </p>
+      </div>
+
+      <!-- Filter Pills -->
+      <div class="filter-pills">
+        <button class="filter-pill active" data-filter="all">All Products</button>
+        <button class="filter-pill" data-filter="vegetables">Fresh Vegetables</button>
+        <button class="filter-pill" data-filter="fruits">Organic Fruits</button>
+        <button class="filter-pill" data-filter="dairy">Dairy & Milk</button>
+        <button class="filter-pill" data-filter="honey">Farm Honey</button>
+        <button class="filter-pill" data-filter="grains">Grains & Oils</button>
+      </div>
+
+      <div class="products-grid" id="productsGrid"></div>
+      
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="404.html" class="btn btn-outline-dark">
+          <span>View All 150+ Market Items</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Harvest Deal of the Week (Countdown Timer) -->
+  <section class="deal-section" id="deal">
+    <div class="container">
+      <div class="deal-wrapper">
+        <div class="deal-content">
+          <span class="title-tagline" style="background: rgba(255,255,255,0.15); color: #ffd166;">
+            <i class="fas fa-bolt"></i> Special Harvest Promo
+          </span>
+          <h2>Deal Of The Week: Fresh Organic Honeycomb Basket</h2>
+          <p style="color: #ccd8ca; font-size: 1.1rem; line-height: 1.7;">
+            Enjoy 35% discount on our raw golden mountain honeycomb jar bundle harvested alongside crisp orchard apples. Packed with immune-boosting enzymes and natural vitality.
+          </p>
+
+          <div class="countdown-timer">
+            <div class="timer-box">
+              <div class="num" id="days">12</div>
+              <div class="label">Days</div>
+            </div>
+            <div class="timer-box">
+              <div class="num" id="hours">18</div>
+              <div class="label">Hours</div>
+            </div>
+            <div class="timer-box">
+              <div class="num" id="minutes">45</div>
+              <div class="label">Mins</div>
+            </div>
+            <div class="timer-box">
+              <div class="num" id="seconds">30</div>
+              <div class="label">Secs</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+            <button class="btn btn-accent" onclick="window.location.href='404.html'">
+              <span>Claim Harvest Deal</span>
+              <i class="fas fa-shopping-basket"></i>
+            </button>
+            <span style="font-size: 1.4rem; font-weight: 800; color: #ffd166;">Only $14.50 <s style="font-size: 1rem; color: #9ab098;">$22.00</s></span>
+          </div>
+        </div>
+
+        <div class="deal-visual">
+          <div class="deal-sticker">
+            <span>-35%</span>
+            <span>OFF</span>
+          </div>
+          <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?fm=webp&fit=crop&w=800&q=55" alt="Honey Pot Special Deal" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: Agricultural Solutions & Services -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="text-center">
+        <span class="title-tagline">
+          <i class="fas fa-tractor"></i> Agricultural Solutions
+        </span>
+        <h2 class="section-title">What Agro Provides</h2>
+        <p class="section-subtitle">
+          Empowering modern eco-friendly farms with high-efficiency sustainable techniques, natural fertilization, and smart harvesting.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?fm=webp&fit=crop&w=700&q=45" alt="Precision Farming" loading="lazy" decoding="async">
+          </div>
+          <div class="service-content">
+            <h3>Precision Agriculture</h3>
+            <p>Smart satellite soil mapping, drone water monitoring, and micro-irrigation management for zero waste.</p>
+            <a href="404.html" class="service-link">Explore Solutions <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1584467735815-f778f274e296?fm=webp&fit=crop&w=800&q=45" alt="Organic Fertilizer and Compost" loading="lazy" decoding="async">
+          </div>
+          <div class="service-content">
+            <h3>Bio Fertilizer Supply</h3>
+            <p>100% natural compost mixes, beneficial soil bacteria, and worm casting enrichments for thriving root health.</p>
+            <a href="404.html" class="service-link">Explore Solutions <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?fm=webp&fit=crop&w=700&q=45" alt="Cold Chain Distribution" loading="lazy" decoding="async">
+          </div>
+          <div class="service-content">
+            <h3>Solar Cold Storage</h3>
+            <p>Temperature-controlled, eco-refrigerated transit systems safeguarding nutritional density directly from farm to table.</p>
+            <a href="404.html" class="service-link">Explore Solutions <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: Farmer Spotlight & Verified Testimonials -->
+  <section class="farmers-section" id="farmers">
+    <div class="container">
+      <div class="text-center">
+        <span class="title-tagline">
+          <i class="fas fa-user-friends"></i> Dedicated Cultivators
+        </span>
+        <h2 class="section-title">Meet Our Master Farmers</h2>
+        <p class="section-subtitle">
+          Passionate agriculturalists dedicated to chemical-free soil, heirloom crop breeding, and regenerative ethics.
+        </p>
+      </div>
+
+      <div class="farmers-grid">
+        <div class="farmer-card">
+          <div class="farmer-img-box">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?fm=webp&fit=crop&w=800&q=55" alt="David Miller" loading="lazy" decoding="async">
+          </div>
+          <div class="farmer-info">
+            <h3>David Miller</h3>
+            <div class="farmer-role">Heirloom Crop Specialist</div>
+            <div class="farmer-socials">
+              <a href="404.html" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="404.html" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="farmers.html" title="View Profile"><i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="farmer-card">
+          <div class="farmer-img-box">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?fm=webp&fit=crop&w=800&q=45" alt="Sarah Jenkins" loading="lazy" decoding="async">
+          </div>
+          <div class="farmer-info">
+            <h3>Sarah Jenkins</h3>
+            <div class="farmer-role">Head Apiarist & Botanist</div>
+            <div class="farmer-socials">
+              <a href="404.html" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="404.html" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="farmers.html" title="View Profile"><i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="farmer-card">
+          <div class="farmer-img-box">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fm=webp&fit=crop&w=800&q=55" alt="Marcus Henderson" loading="lazy" decoding="async">
+          </div>
+          <div class="farmer-info">
+            <h3>Marcus Henderson</h3>
+            <div class="farmer-role">Pasture & Dairy Director</div>
+            <div class="farmer-socials">
+              <a href="404.html" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="404.html" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="farmers.html" title="View Profile"><i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="farmer-card">
+          <div class="farmer-img-box">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?fm=webp&fit=crop&w=800&q=55" alt="Elena Rostova" loading="lazy" decoding="async">
+          </div>
+          <div class="farmer-info">
+            <h3>Elena Rostova</h3>
+            <div class="farmer-role">Organic Soil Scientist</div>
+            <div class="farmer-socials">
+              <a href="404.html" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="404.html" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="farmers.html" title="View Profile"><i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 36px;">
+        <a href="404.html" class="btn btn-outline-dark">Explore All 1,200+ Growers</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 11: Newsletter Subscription & Global Footer -->
+  <section class="newsletter-banner">
+    <div class="container">
+      <div class="newsletter-content">
+        <div class="newsletter-text">
+          <h2>Subscribe For Fresh Farm Updates & 15% Off</h2>
+          <p>Get weekly harvest timetables, seasonal recipe cards, and exclusive marketplace coupons.</p>
+        </div>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Enter your email address..." required>
+          <button type="submit">Join Agro</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="logo.webp" alt="Agro - Organic Farm" class="footer-brand-img">
+          <p>
+            Agro is an ethical agriculture platform connecting health-conscious individuals and restaurants directly with certified organic farmers, clean soil practices, and heritage crops.
+          </p>
+          <div class="topbar-socials">
+            <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+            <a href="404.html"><i class="fab fa-twitter"></i></a>
+            <a href="404.html"><i class="fab fa-instagram"></i></a>
+            <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+            <a href="404.html"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Explore Pages</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Farm</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html">Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>742 Evergreen Terrace, Farm District, California 90210</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+1 (800) 456-7890</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>support@agro-farm.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-clock"></i>
+            <span>Mon - Sat: 07:00 AM - 08:00 PM</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Farm Gallery</h3>
+          <div class="footer-gallery">
+            <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 1" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 2" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 3" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 4" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 5" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?fm=webp&fit=crop&w=200&q=55" alt="Farm Photo 6" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Agro - Agriculture & Organic Food Marketplace. All rights reserved.</p>
+        <div class="payment-methods">
+          <i class="fab fa-cc-visa" title="Visa"></i>
+          <i class="fab fa-cc-mastercard" title="MasterCard"></i>
+          <i class="fab fa-cc-amex" title="American Express"></i>
+          <i class="fab fa-cc-paypal" title="PayPal"></i>
+          <i class="fab fa-apple-pay" title="Apple Pay"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart Drawer">
+    <div class="cart-header">
+      <h3>Your Harvest Basket</h3>
+      <button class="close-drawer-btn" id="closeCartBtn" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-items-list" id="cartItems">
+      <div class="empty-cart-msg">
+        <i class="fas fa-shopping-basket"></i>
+        <h4>Your basket is empty</h4>
+        <p>Browse fresh vegetables, organic fruits, and artisan pantry items to start filling it.</p>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal:</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <div class="cart-actions">
+        <button class="btn btn-primary" id="checkoutBtn">
+          <span>Proceed to Checkout</span>
+          <i class="fas fa-lock"></i>
+        </button>
+        <button class="btn btn-outline-dark" onclick="closeCart()">
+          <span>Continue Shopping</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Quick View Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <button class="modal-close-btn" id="closeModalBtn" aria-label="Close product view">&times;</button>
+      <div id="modalContent" style="display: contents;"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Script -->
+  <script src="app.js"></script>
+</body>
+</html>

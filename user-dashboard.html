@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard | Agro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Dashboard -->
+  <div class="dashboard-wrap" id="userDashboard">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-brand">
+        <img src="logo.webp" alt="Agro - Organic Farm" class="sidebar-brand-img">
+        <button class="dash-sidebar-close" id="dashSidebarClose" aria-label="Close sidebar navigation">&times;</button>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="user-dashboard.html" class="active"><i class="fas fa-th-large"></i> Overview</a>
+        <a href="user-orders.html"><i class="fas fa-shopping-basket"></i> My Orders</a>
+        <a href="user-wishlist.html"><i class="fas fa-heart"></i> Wishlist</a>
+        <a href="user-addresses.html"><i class="fas fa-map-marker-alt"></i> Addresses</a>
+        <a href="user-marketplace.html"><i class="fas fa-store"></i> Browse Marketplace</a>
+        <a href="user-support.html"><i class="fas fa-headset"></i> Support</a>
+      </nav>
+
+      <div class="sidebar-logout">
+        <nav class="sidebar-menu">
+          <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <div class="dashboard-topbar">
+        <div class="dash-topbar-header">
+          <div class="dash-header-left">
+            <button class="dash-menu-toggle" id="dashMenuToggle" aria-label="Open sidebar menu">
+              <i class="fas fa-bars"></i>
+            </button>
+            <a href="index.html" class="dash-mobile-logo">
+              <img src="logo.webp" alt="Agro - Organic Farm">
+            </a>
+          </div>
+          <div class="user-chip">
+            <div class="avatar">C</div>
+          <div class="user-meta">
+            <strong>user@agro-farm.com</strong>
+            <span>Customer Account</span>
+          </div>
+        </div>
+        </div>
+        <div class="dash-topbar-title">
+          <h1>Hello, Customer</h1>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Welcome back to your Agro farm account.</p>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="fas fa-box"></i></div>
+          <div>
+            <h4>12</h4>
+            <p>Total Orders</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon gold"><i class="fas fa-truck"></i></div>
+          <div>
+            <h4>3</h4>
+            <p>In Transit</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue"><i class="fas fa-heart"></i></div>
+          <div>
+            <h4>8</h4>
+            <p>Saved Items</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon red"><i class="fas fa-star"></i></div>
+          <div>
+            <h4>240</h4>
+            <p>Loyalty Points</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-panel" style="background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 60%, #0f3d13 100%); border: none; box-shadow: var(--shadow-md);">
+        <div class="panel-head" style="border: none;">
+          <h2 style="color: var(--white);"><i class="fas fa-truck" style="margin-right: 8px;"></i> Your Next Delivery</h2>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between;">
+          <div style="color: var(--white);">
+            <p style="margin: 0 0 6px; font-size: 1.05rem; font-weight: 600;">Weekly Harvest Basket #31</p>
+            <p style="margin: 0; color: rgba(255,255,255,0.85); font-size: 0.9rem;">
+              <i class="far fa-clock" style="margin-right: 6px;"></i>Arrives this Friday, Sep 25, 2026 &nbsp;|&nbsp;
+              <i class="fas fa-box" style="margin-right: 6px;"></i>12 items &nbsp;|&nbsp;
+              <i class="fas fa-map-marker-alt" style="margin-right: 6px;"></i>742 Evergreen Terrace
+            </p>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="404.html" class="btn" style="background: var(--accent); color: var(--secondary); border: none;"><span>Track Order</span><i class="fas fa-arrow-right"></i></a>
+            <a href="404.html" class="btn btn-outline" style="border-color: rgba(255,255,255,0.5); color: var(--white);"><span>Modify Basket</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-panel">
+        <div class="panel-head">
+          <h2>Recent Orders</h2>
+          <a href="404.html" class="btn btn-outline-dark btn-sm" style="padding: 8px 18px; font-size: 0.85rem;">View All Orders</a>
+        </div>
+        <table class="dash-table">
+          <thead>
+            <tr>
+              <th>Order</th>
+              <th>Date</th>
+              <th>Items</th>
+              <th>Total</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>#AG-2041</strong></td>
+              <td>Sep 12, 2026</td>
+              <td>4</td>
+              <td>$28.60</td>
+              <td><span class="status-pill delivered">Delivered</span></td>
+            </tr>
+            <tr>
+              <td><strong>#AG-2037</strong></td>
+              <td>Sep 05, 2026</td>
+              <td>2</td>
+              <td>$19.40</td>
+              <td><span class="status-pill delivered">Delivered</span></td>
+            </tr>
+            <tr>
+              <td><strong>#AG-2029</strong></td>
+              <td>Aug 28, 2026</td>
+              <td>6</td>
+              <td>$44.10</td>
+              <td><span class="status-pill processing">Processing</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="dash-panel">
+        <div class="panel-head">
+          <h2>Popular Right Now</h2>
+          <a href="404.html" class="btn btn-outline-dark btn-sm" style="padding: 8px 18px; font-size: 0.85rem;">Browse Marketplace</a>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+          <div class="product-card-mini" style="padding: 18px; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--white); text-align: center;">
+            <i class="fas fa-jar" style="font-size: 2.2rem; color: var(--accent);"></i>
+            <h4 style="font-family: var(--font-serif); margin: 10px 0 4px;">Golden Honeycomb</h4>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 10px;">Farm Honey · Sunrise Apiaries</p>
+            <strong>$14.50</strong>
+          </div>
+          <div class="product-card-mini" style="padding: 18px; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--white); text-align: center;">
+            <i class="fas fa-seedling" style="font-size: 2.2rem; color: var(--primary);"></i>
+            <h4 style="font-family: var(--font-serif); margin: 10px 0 4px;">Organic Strawberries</h4>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 10px;">Fresh Fruits · Pacific Coast</p>
+            <strong>$6.90</strong>
+          </div>
+          <div class="product-card-mini" style="padding: 18px; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--white); text-align: center;">
+            <i class="fas fa-egg" style="font-size: 2.2rem; color: #e07b39;"></i>
+            <h4 style="font-family: var(--font-serif); margin: 10px 0 4px;">Free Range Eggs</h4>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 10px;">Dairy · Rolling Meadows</p>
+            <strong>$6.40</strong>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Dashboard Backdrop Overlay -->
+  <div class="dash-overlay" id="dashOverlay"></div>
+
+  <!-- Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Harvest Basket</h3>
+      <button class="close-drawer-btn" id="closeCartBtn">&times;</button>
+    </div>
+    <div class="cart-items-list" id="cartItems">
+      <div class="empty-cart-msg"><i class="fas fa-shopping-basket"></i><h4>Your basket is empty</h4></div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span>Subtotal:</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="cart-actions">
+        <button class="btn btn-primary" id="checkoutBtn"><span>Proceed to Checkout</span><i class="fas fa-lock"></i></button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="app.js"></script>
+</body>
+</html>

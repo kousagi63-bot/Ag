@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders | Agro Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Dashboard -->
+  <div class="dashboard-wrap" id="adminDashboard">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-brand">
+        <img src="logo.webp" alt="Agro - Organic Farm" class="sidebar-brand-img">
+        <button class="dash-sidebar-close" id="dashSidebarClose" aria-label="Close sidebar navigation">&times;</button>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="admin-dashboard.html"><i class="fas fa-th-large"></i> Overview</a>
+        <a href="admin-orders.html" class="active"><i class="fas fa-shopping-basket"></i> Orders</a>
+        <a href="admin-products.html"><i class="fas fa-box-open"></i> Products</a>
+        <a href="admin-farmers.html"><i class="fas fa-tractor"></i> Farmers</a>
+        <a href="admin-customers.html"><i class="fas fa-users"></i> Customers</a>
+        <a href="admin-reports.html"><i class="fas fa-chart-line"></i> Reports</a>
+      </nav>
+
+      <div class="sidebar-logout">
+        <nav class="sidebar-menu">
+          <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <div class="dashboard-topbar">
+        <div class="dash-topbar-header">
+          <div class="dash-header-left">
+            <button class="dash-menu-toggle" id="dashMenuToggle" aria-label="Open sidebar menu">
+              <i class="fas fa-bars"></i>
+            </button>
+            <a href="index.html" class="dash-mobile-logo">
+              <img src="logo.webp" alt="Agro - Organic Farm">
+            </a>
+          </div>
+          <div class="user-chip">
+            <div class="avatar">A</div>
+          <div class="user-meta">
+            <strong>admin@agro-farm.com</strong>
+            <span>Administrator</span>
+          </div>
+        </div>
+        </div>
+        <div class="dash-topbar-title">
+          <h1>All Orders</h1>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Review and manage every marketplace order.</p>
+        </div>
+      </div>
+
+      <div class="dash-panel">
+        <div class="panel-head">
+          <h2>Recent Orders</h2>
+          <span class="pill"><i class="fas fa-filter"></i> Last 7 Days</span>
+        </div>
+        <table class="dash-table">
+          <thead>
+            <tr>
+              <th>Order</th>
+              <th>Customer</th>
+              <th>Items</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>#AG-2041</strong></td>
+              <td>Jane Doe</td>
+              <td>4</td>
+              <td>$28.60</td>
+              <td><span class="status-pill delivered">Delivered</span></td>
+              <td><a href="404.html" style="color: var(--primary); font-weight: 600;">View</a></td>
+            </tr>
+            <tr>
+              <td><strong>#AG-2037</strong></td>
+              <td>Mark Johnson</td>
+              <td>2</td>
+              <td>$19.40</td>
+              <td><span class="status-pill delivered">Delivered</span></td>
+              <td><a href="404.html" style="color: var(--primary); font-weight: 600;">View</a></td>
+            </tr>
+            <tr>
+              <td><strong>#AG-2033</strong></td>
+              <td>Green Valley Bistro</td>
+              <td>9</td>
+              <td>$87.15</td>
+              <td><span class="status-pill processing">Processing</span></td>
+              <td><a href="404.html" style="color: var(--primary); font-weight: 600;">View</a></td>
+            </tr>
+            <tr>
+              <td><strong>#AG-2029</strong></td>
+              <td>Sarah Kim</td>
+              <td>6</td>
+              <td>$44.10</td>
+              <td><span class="status-pill pending">Pending</span></td>
+              <td><a href="404.html" style="color: var(--primary); font-weight: 600;">View</a></td>
+            </tr>
+            <tr>
+              <td><strong>#AG-2023</strong></td>
+              <td>Liam Carter</td>
+              <td>3</td>
+              <td>$23.75</td>
+              <td><span class="status-pill cancelled">Cancelled</span></td>
+              <td><a href="404.html" style="color: var(--primary); font-weight: 600;">View</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <!-- Dashboard Backdrop Overlay -->
+  <div class="dash-overlay" id="dashOverlay"></div>
+
+  <!-- Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Harvest Basket</h3>
+      <button class="close-drawer-btn" id="closeCartBtn">&times;</button>
+    </div>
+    <div class="cart-items-list" id="cartItems">
+      <div class="empty-cart-msg"><i class="fas fa-shopping-basket"></i><h4>Your basket is empty</h4></div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span>Subtotal:</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="cart-actions">
+        <button class="btn btn-primary" id="checkoutBtn"><span>Proceed to Checkout</span><i class="fas fa-lock"></i></button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="app.js"></script>
+</body>
+</html>

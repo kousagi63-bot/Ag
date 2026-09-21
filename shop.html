@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketplace - Agro Organic Produce & Groceries</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header-main">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="logo.webp" alt="Agro - Organic Farm" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Farm</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="services.html">Service</a>
+      </nav>
+
+      <div class="header-right">
+        <a href="404.html" class="nav-icon-btn" title="Wishlist">
+          <i class="fas fa-heart"></i>
+          <span class="badge-count" id="wishlistBadge">0</span>
+        </a>
+        <a href="404.html" class="nav-icon-btn" title="Shopping Cart">
+          <i class="fas fa-shopping-basket"></i>
+          <span class="badge-count" id="cartBadge">0</span>
+        </a>
+        <button class="nav-icon-btn login-icon-btn" id="loginBtn" title="Login / Account" aria-label="Login">
+          <i class="fas fa-user"></i>
+        </button>
+
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 1: Shop Page Banner -->
+  <section class="page-banner">
+    <div class="container">
+      <h1>Farm-to-Table Marketplace</h1>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Direct Farmer Store</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Search & Live Filter Bar -->
+  <section style="padding: 40px 0 20px; background: var(--bg-light);">
+    <div class="container">
+      <div style="background: var(--white); padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--border-color); display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; box-shadow: var(--shadow-sm);">
+        <div style="display: flex; gap: 12px; align-items: center; flex-grow: 1; max-width: 450px;">
+          <i class="fas fa-search" style="color: var(--primary);"></i>
+          <input type="text" placeholder="Search crops (e.g., tomatoes, honey, carrots)..." style="width: 100%; font-size: 1rem; color: var(--secondary);" onkeyup="filterBySearch(this.value)">
+        </div>
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+          <span style="font-size: 0.9rem; font-weight: 600; color: var(--text-muted);">Certification:</span>
+          <select style="padding: 8px 16px; border-radius: var(--radius-full); border: 1px solid var(--border-color); background: var(--bg-light); color: var(--secondary);">
+            <option>All Certified Organic</option>
+            <option>USDA Organic (100%)</option>
+            <option>Demeter Biodynamic</option>
+            <option>Non-GMO Project</option>
+          </select>
+          <select style="padding: 8px 16px; border-radius: var(--radius-full); border: 1px solid var(--border-color); background: var(--bg-light); color: var(--secondary);">
+            <option>Sort by: Most Popular</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+            <option>Highest Rated</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Seasonal Harvest Bestsellers Banner -->
+  <section style="padding: 30px 0; background: var(--bg-light);">
+    <div class="container">
+      <div style="background: linear-gradient(135deg, #3f6836, #222b21); border-radius: var(--radius-md); padding: 30px 40px; color: var(--white); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <span style="background: var(--accent); color: var(--white); padding: 4px 12px; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Limited Harvest</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin: 10px 0 6px;">Autumn Orchard Honey & Crisp Apples</h3>
+          <p style="color: #ccd8ca; font-size: 0.95rem;">Freshly picked this morning from Sunny Ridge Apiaries. Save 20% on combo baskets.</p>
+        </div>
+        <button class="btn btn-accent" onclick="addToCart(2)">Claim Bundle ($14.50)</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Full Interactive Products Grid with Pills -->
+  <section class="marketplace-section" style="padding-top: 40px;">
+    <div class="container">
+      <!-- Filter Pills -->
+      <div class="filter-pills">
+        <button class="filter-pill active" data-filter="all">All Farm Goods</button>
+        <button class="filter-pill" data-filter="vegetables">Fresh Vegetables</button>
+        <button class="filter-pill" data-filter="fruits">Organic Fruits</button>
+        <button class="filter-pill" data-filter="dairy">Dairy & Eggs</button>
+        <button class="filter-pill" data-filter="honey">Honey & Jams</button>
+        <button class="filter-pill" data-filter="grains">Grains & Oils</button>
+      </div>
+
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Farmer Origin Map & Region Selector -->
+  <section style="padding: 70px 0; background: var(--bg-light);">
+    <div class="container">
+      <div class="text-center">
+        <span class="title-tagline"><i class="fas fa-map-marked-alt"></i> Transparency</span>
+        <h2 class="section-title">Know Exactly Where Your Food Grew</h2>
+        <p class="section-subtitle">Every single product is stamped with the exact latitude, soil history, and farmer identity.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+        <div style="background: var(--white); border-radius: var(--radius-md); padding: 24px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+          <h4 style="color: var(--secondary); font-size: 1.15rem; margin-bottom: 8px;"><i class="fas fa-sun" style="color: var(--accent);"></i> Pacific Coast Valley</h4>
+          <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 12px;">Rich alluvial soils perfect for heirloom strawberries, bell peppers, and citrus orchards.</p>
+          <span style="font-size: 0.82rem; font-weight: 700; color: var(--primary);">48 Partner Farms Active</span>
+        </div>
+
+        <div style="background: var(--white); border-radius: var(--radius-md); padding: 24px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+          <h4 style="color: var(--secondary); font-size: 1.15rem; margin-bottom: 8px;"><i class="fas fa-mountain" style="color: var(--primary);"></i> Highland Organic Ridge</h4>
+          <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 12px;">Crisp alpine air providing pest-free conditions for bunch carrots, potatoes, and garlic roots.</p>
+          <span style="font-size: 0.82rem; font-weight: 700; color: var(--primary);">32 Partner Farms Active</span>
+        </div>
+
+        <div style="background: var(--white); border-radius: var(--radius-md); padding: 24px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+          <h4 style="color: var(--secondary); font-size: 1.15rem; margin-bottom: 8px;"><i class="fas fa-seedling" style="color: #6a994e;"></i> Rolling Meadows Pastures</h4>
+          <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 12px;">Wide perennial clover grasslands fostering grass-fed cows and free-ranging heritage hens.</p>
+          <span style="font-size: 0.82rem; font-weight: 700; color: var(--primary);">54 Partner Farms Active</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Weekly CSA Subscription Boxes / Plans -->
+  <section style="padding: 90px 0; background: var(--white);">
+    <div class="container">
+      <div class="text-center">
+        <span class="title-tagline"><i class="fas fa-box-open"></i> Weekly Farm Boxes</span>
+        <h2 class="section-title">Subscribe to the Weekly Harvest Basket</h2>
+        <p class="section-subtitle">Delivered straight to your doorstep every Tuesday morning with freshly picked produce.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Single Harvest Box</h3>
+          <div class="pricing-price">$29 <span>/ week</span></div>
+          <ul class="pricing-features">
+            <li><i class="fas fa-check"></i> 5 Organic Vegetables (3-4 kg)</li>
+            <li><i class="fas fa-check"></i> 2 Seasonal Fruit Punis (1.5 kg)</li>
+            <li><i class="fas fa-check"></i> Weekly Fresh Recipe Sheet</li>
+            <li><i class="fas fa-check"></i> Free Morning Delivery</li>
+          </ul>
+          <button class="btn btn-outline-dark" onclick="showToast('Subscribed to Single Harvest Box!')">Select Box</button>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <h3>Family Table Crate</h3>
+          <div class="pricing-price">$49 <span>/ week</span></div>
+          <ul class="pricing-features">
+            <li><i class="fas fa-check"></i> 9 Organic Vegetables (7-8 kg)</li>
+            <li><i class="fas fa-check"></i> 4 Seasonal Orchard Fruits (3 kg)</li>
+            <li><i class="fas fa-check"></i> 1 Pasture-Raised Brown Egg Dozen</li>
+            <li><i class="fas fa-check"></i> 1 Raw Wildflower Honey Jar</li>
+            <li><i class="fas fa-check"></i> Priority Chilled Dispatch</li>
+          </ul>
+          <button class="btn btn-primary" onclick="showToast('Subscribed to Family Table Crate!')">Select Box</button>
+        </div>
+
+        <div class="pricing-card">
+          <h3>Artisan Gourmet Pantry</h3>
+          <div class="pricing-price">$79 <span>/ week</span></div>
+          <ul class="pricing-features">
+            <li><i class="fas fa-check"></i> 12 Organic Vegetables & Fruits</li>
+            <li><i class="fas fa-check"></i> Cold-Pressed Extra Virgin Olive Oil</li>
+            <li><i class="fas fa-check"></i> 2 Pasture Grass-Fed Whole Milk Bottles</li>
+            <li><i class="fas fa-check"></i> Artisanal Farmhouse Cheese Wheel</li>
+            <li><i class="fas fa-check"></i> Custom Produce Swaps Anytime</li>
+          </ul>
+          <button class="btn btn-outline-dark" onclick="showToast('Subscribed to Gourmet Pantry Box!')">Select Box</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Fresh Produce Quality Guarantee Banner -->
+  <section style="padding: 70px 0; background: var(--secondary); color: var(--white);">
+    <div class="container">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 30px;">
+        <div style="max-width: 650px;">
+          <h2 style="font-family: var(--font-serif); font-size: 2.2rem; margin-bottom: 12px;">100% Crispness & Freshness Guaranteed</h2>
+          <p style="color: #ccd8ca; font-size: 1rem; line-height: 1.7;">
+            If any fruit or vegetable fails to meet your highest standards for crispness, flavor, and freshness, snap a photo and we will instantly credit your account with zero questions asked.
+          </p>
+        </div>
+        <div style="display: flex; gap: 16px;">
+          <div style="text-align: center; background: rgba(255,255,255,0.08); padding: 20px; border-radius: var(--radius-md);">
+            <i class="fas fa-clock" style="font-size: 2rem; color: #ffd166; margin-bottom: 8px;"></i>
+            <h4 style="color: var(--white); font-size: 1rem;">Picked Within 24h</h4>
+          </div>
+          <div style="text-align: center; background: rgba(255,255,255,0.08); padding: 20px; border-radius: var(--radius-md);">
+            <i class="fas fa-temperature-low" style="font-size: 2rem; color: #a0d892; margin-bottom: 8px;"></i>
+            <h4 style="color: var(--white); font-size: 1rem;">Solar Chilled Transit</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Buyer Verified Feedback Spotlight -->
+  <section style="padding: 80px 0; background: var(--bg-light);">
+    <div class="container">
+      <div class="text-center">
+        <span class="title-tagline"><i class="fas fa-star"></i> Verified Reviews</span>
+        <h2 class="section-title">Loved by 85,000+ Kitchens</h2>
+        <p class="section-subtitle">Real opinions on our farm goods and timely delivery.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testi-card">
+          <div class="product-rating" style="margin-bottom: 10px;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p>"The bell peppers and heirloom carrots arrived with green dewy tops! They stayed super crisp for two weeks in our fridge. The taste is night and day compared to supermarket goods."</p>
+          <div class="testi-author">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?fm=webp&fit=crop&w=150&q=55" alt="Sarah" class="author-avatar" loading="lazy" decoding="async">
+            <div class="author-info">
+              <h4>Sarah Miller</h4>
+              <span>San Francisco, CA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="product-rating" style="margin-bottom: 10px;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p>"The weekly Family Table Crate has simplified dinner completely. Fresh pasture eggs, real raw milk, and seasonal fruits that my kids actually ask for."</p>
+          <div class="testi-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fm=webp&fit=crop&w=150&q=55" alt="David" class="author-avatar" loading="lazy" decoding="async">
+            <div class="author-info">
+              <h4>David Chen</h4>
+              <span>Portland, OR</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="product-rating" style="margin-bottom: 10px;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p>"The raw mountain honey comb jar is the purest honey I've had outside of my uncle's farm in Greece. Will be buying a case for holiday gifting!"</p>
+          <div class="testi-author">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?fm=webp&fit=crop&w=150&q=55" alt="Elena" class="author-avatar" loading="lazy" decoding="async">
+            <div class="author-info">
+              <h4>Elena Vasquez</h4>
+              <span>Austin, TX</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: Global Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="logo.webp" alt="Agro - Organic Farm" class="footer-brand-img">
+          <p>The premier ethical organic agriculture cooperative delivering certified healthy crops directly from farmers to your door.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Explore Pages</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Farm</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html">Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Customer Desk</h3>
+          <ul>
+            <li><a href="#">Delivery Policies</a></li>
+            <li><a href="#">Freshness Guarantee</a></li>
+            <li><a href="#">Wholesale Inquiries</a></li>
+            <li><a href="#">Farmer Partner Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Support Hotline</h3>
+          <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><span>+1 (800) 456-7890</span></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>orders@agro-farm.com</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Agro - Agriculture & Organic Food Marketplace. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Harvest Basket</h3>
+      <button class="close-drawer-btn" id="closeCartBtn">&times;</button>
+    </div>
+    <div class="cart-items-list" id="cartItems">
+      <div class="empty-cart-msg"><i class="fas fa-shopping-basket"></i><h4>Your basket is empty</h4></div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span>Subtotal:</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="cart-actions">
+        <button class="btn btn-primary" id="checkoutBtn"><span>Proceed to Checkout</span><i class="fas fa-lock"></i></button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Quick View Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <button class="modal-close-btn" id="closeModalBtn">&times;</button>
+      <div id="modalContent" style="display: contents;"></div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="app.js"></script>
+  <script>
+    function filterBySearch(keyword) {
+      keyword = keyword.toLowerCase().trim();
+      const filtered = productsData.filter(p => 
+        p.name.toLowerCase().includes(keyword) || 
+        p.categoryLabel.toLowerCase().includes(keyword)
+      );
+      renderProducts(filtered);
+    }
+  </script>
+</body>
+</html>

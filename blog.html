@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agro Blog - Agricultural Insights & Organic Living</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header-main">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="logo.webp" alt="Agro - Organic Farm" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Farm</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="services.html">Service</a>
+      </nav>
+
+      <div class="header-right">
+        <a href="404.html" class="nav-icon-btn" title="Wishlist" aria-label="Wishlist">
+          <i class="fas fa-heart"></i>
+          <span class="badge-count" id="wishlistBadge">0</span>
+        </a>
+        <a href="404.html" class="nav-icon-btn" title="Shopping Cart" aria-label="Shopping Cart">
+          <i class="fas fa-shopping-basket"></i>
+          <span class="badge-count" id="cartBadge">0</span>
+        </a>
+        <a href="404.html" class="btn btn-primary header-cta-btn">
+          <span>Shop Fresh</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <button class="nav-icon-btn login-icon-btn" id="loginBtn" title="Login / Account" aria-label="Login">
+          <i class="fas fa-user"></i>
+        </button>
+
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 1: Page Banner -->
+  <section class="page-banner">
+    <div class="container">
+      <h1>Farming Insights & Organic Living</h1>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Agronomy Journal & Recipes</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Featured Lead Article Banner -->
+  <section style="padding: 60px 0 30px; background: var(--white);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; background: var(--bg-light); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-md);">
+        <div>
+          <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?fm=webp&fit=crop&w=600&q=40" alt="Lead Article" style="width: 100%; height: 100%; min-height: 280px; object-fit: cover;" loading="lazy" decoding="async">
+        </div>
+        <div style="padding: 30px 28px; display: flex; flex-direction: column; justify-content: center;">
+          <span style="display: inline-block; background: var(--primary); color: var(--white); padding: 4px 12px; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; width: fit-content; margin-bottom: 14px;">Editor's Pick</span>
+          <h2 style="font-family: var(--font-serif); font-size: clamp(1.4rem, 4vw, 2.2rem); line-height: 1.3; margin-bottom: 16px; color: var(--secondary);">
+            The Hidden World Beneath Our Feet: How Mycorrhizal Fungi Connect Whole Orchards
+          </h2>
+          <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.7; margin-bottom: 24px;">
+            Scientific investigations reveal how trees and organic vegetable roots trade sugars for phosphorus via ancient subterranean fungal superhighways.
+          </p>
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 24px;">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?fm=webp&fit=crop&w=100&q=55" alt="Dr Elena" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;" loading="lazy" decoding="async">
+            <div>
+              <h5 style="color: var(--secondary); font-size: 0.92rem;">Dr. Elena Rostova</h5>
+              <span style="color: var(--text-muted); font-size: 0.8rem;">Chief Soil Microbiologist &bull; 8 min read</span>
+            </div>
+          </div>
+          <button class="btn btn-outline-dark" style="width: fit-content;" onclick="window.location.href='404.html'">Read Complete Study</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Filter By Agricultural Topics -->
+  <section style="padding: 20px 0; background: var(--white);">
+    <div class="container">
+      <div class="filter-pills" style="margin-bottom: 20px;">
+        <button class="filter-pill active">All Articles</button>
+        <button class="filter-pill">Soil Biology</button>
+        <button class="filter-pill">Seasonal Cooking</button>
+        <button class="filter-pill">Beekeeping & Apiary</button>
+        <button class="filter-pill">Regenerative Methods</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Grid of Latest Articles -->
+  <section style="padding: 30px 0 80px; background: var(--white);">
+    <div class="container">
+      <div class="blog-grid">
+        <!-- Article 1 -->
+        <div class="blog-card">
+          <div class="blog-thumb">
+            <span class="blog-date-badge">16 Sep 2026</span>
+            <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?fm=webp&fit=crop&w=800&q=55" alt="Autumn Vegetables" loading="lazy" decoding="async">
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta"><span><i class="fas fa-tag"></i> Nutrition</span><span><i class="fas fa-clock"></i> 5 min read</span></div>
+            <h3 class="blog-title"><a href="#">Top 7 Nutrient-Dense Roots To Roast This Autumn</a></h3>
+            <p>From purple heirloom carrots to sweet candy beets, discover simple cooking methods to preserve vitamins.</p>
+          </div>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="blog-card">
+          <div class="blog-thumb">
+            <span class="blog-date-badge">12 Sep 2026</span>
+            <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?fm=webp&fit=crop&w=700&q=40" alt="Beekeeping" loading="lazy" decoding="async">
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta"><span><i class="fas fa-tag"></i> Apiary</span><span><i class="fas fa-clock"></i> 6 min read</span></div>
+            <h3 class="blog-title"><a href="#">Why Native Honeybee Sanctuaries Protect Orchard Yields</a></h3>
+            <p>How planting boundary wildflower strips preserves pollinator health and boosts fruit setting naturally.</p>
+          </div>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="blog-card">
+          <div class="blog-thumb">
+            <span class="blog-date-badge">05 Sep 2026</span>
+            <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?fm=webp&fit=crop&w=800&q=55" alt="Olive oil press" loading="lazy" decoding="async">
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta"><span><i class="fas fa-tag"></i> Artisanal</span><span><i class="fas fa-clock"></i> 7 min read</span></div>
+            <h3 class="blog-title"><a href="#">Single Cold-Press: The Science Behind Extra Virgin Phenols</a></h3>
+            <p>Why temperature during olive pressing dictates the pungent antioxidant polyphenol level in genuine olive oils.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Seasonal Harvest Planting Calendar & Infographic -->
+  <section style="padding: 80px 0; background: var(--bg-light);">
+    <div class="container">
+      <div class="text-center">
+        <span class="title-tagline"><i class="fas fa-calendar"></i> Agronomy Calendar</span>
+        <h2 class="section-title">What Is In Season Right Now?</h2>
+        <p class="section-subtitle">Eat with the seasons to enjoy peak flavor and minimum environmental transit impact.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+        <div style="background: var(--white); padding: 24px; border-radius: var(--radius-md); border-top: 4px solid var(--primary); box-shadow: var(--shadow-sm);">
+          <h4 style="color: var(--secondary); margin-bottom: 12px;"><i class="fas fa-seedling" style="color: var(--primary);"></i> Spring Harvest</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">Tender baby spinach, radishes, sweet asparagus, fresh chives, and wild ramps.</p>
+        </div>
+        <div style="background: var(--white); padding: 24px; border-radius: var(--radius-md); border-top: 4px solid var(--accent); box-shadow: var(--shadow-sm);">
+          <h4 style="color: var(--secondary); margin-bottom: 12px;"><i class="fas fa-sun" style="color: var(--accent);"></i> Summer Peak</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">Heirloom beefsteak tomatoes, sweet corn, yellow bell peppers, strawberries, and peaches.</p>
+        </div>
+        <div style="background: var(--white); padding: 24px; border-radius: var(--radius-md); border-top: 4px solid #d9534f; box-shadow: var(--shadow-sm);">
+          <h4 style="color: var(--secondary); margin-bottom: 12px;"><i class="fas fa-leaf" style="color: #d9534f;"></i> Autumn Bounties</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">Butternut squash, purple bunch carrots, honeycombs, crisp orchard apples, and dark kale.</p>
+        </div>
+        <div style="background: var(--white); padding: 24px; border-radius: var(--radius-md); border-top: 4px solid #457b9d; box-shadow: var(--shadow-sm);">
+          <h4 style="color: var(--secondary); margin-bottom: 12px;"><i class="fas fa-snowflake" style="color: #457b9d;"></i> Winter Roots</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">Cold-sweetened parsnips, leeks, Brussels sprouts, stored onions, and citrus mandarins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Farm-To-Table Recipes Spotlight -->
+  <section style="padding: 80px 0; background: var(--white);">
+    <div class="container">
+      <div class="text-center">
+        <span class="title-tagline"><i class="fas fa-utensils"></i> Kitchen Delights</span>
+        <h2 class="section-title">Farm-To-Table Kitchen Creations</h2>
+        <p class="section-subtitle">Simple, nourishing recipes created directly by local growers and chefs.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+        <div style="display: flex; gap: 20px; background: var(--bg-light); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color); align-items: center; flex-wrap: wrap;">
+          <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?fm=webp&fit=crop&w=200&q=55" alt="Heirloom Salad" style="width: 120px; height: 120px; object-fit: cover; border-radius: var(--radius-sm);" loading="lazy" decoding="async">
+          <div>
+            <h4 style="color: var(--secondary); margin-bottom: 6px;">Rustic Heirloom Tomato & Basil Carpaccio</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">Drizzled with our Greek first cold-press olive oil and flaked sea salt.</p>
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--primary);">Prep Time: 10 mins</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 20px; background: var(--bg-light); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color); align-items: center; flex-wrap: wrap;">
+          <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?fm=webp&fit=crop&w=200&q=55" alt="Honey glazed carrots" style="width: 120px; height: 120px; object-fit: cover; border-radius: var(--radius-sm);" loading="lazy" decoding="async">
+          <div>
+            <h4 style="color: var(--secondary); margin-bottom: 6px;">Wild Honey Glazed Rainbow Carrots</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">Roasted with fresh thyme, raw honeycomb, and toasted pumpkin seeds.</p>
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--primary);">Prep Time: 25 mins</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Author & Contributor Spotlight -->
+  <section style="padding: 80px 0; background: var(--primary-bg);">
+    <div class="container">
+      <div class="text-center">
+        <span class="title-tagline"><i class="fas fa-feather-alt"></i> Voices</span>
+        <h2 class="section-title">Meet Our Science & Culinary Contributors</h2>
+      </div>
+      <div class="farmers-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+        <div class="farmer-card">
+          <div class="farmer-info">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?fm=webp&fit=crop&w=150&q=55" alt="Sarah" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 12px; object-fit: cover;" loading="lazy" decoding="async">
+            <h3>Sarah Jenkins</h3>
+            <div class="farmer-role">Apiarist Contributor</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Author of 18 field guides on biodynamic hive management.</p>
+          </div>
+        </div>
+        <div class="farmer-card">
+          <div class="farmer-info">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?fm=webp&fit=crop&w=150&q=55" alt="David" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 12px; object-fit: cover;" loading="lazy" decoding="async">
+            <h3>David Miller</h3>
+            <div class="farmer-role">Agronomist Contributor</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Writing weekly updates on no-till perennial soil health.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Newsletter & Global Footer -->
+  <section class="newsletter-banner">
+    <div class="container">
+      <div class="newsletter-content">
+        <div class="newsletter-text">
+          <h2>Receive Our Weekly Harvest Digest</h2>
+          <p>Fresh articles, planting guides, and chef recipes delivered directly to your inbox.</p>
+        </div>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Enter your email address..." required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="logo.webp" alt="Agro - Organic Farm" class="footer-brand-img">
+          <p>Connecting health-conscious communities directly with verified organic farmers, clean soil practices, and heritage whole foods.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Explore Pages</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Farm</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html">Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="shop.html">Vegetables</a></li>
+            <li><a href="shop.html">Fresh Fruits</a></li>
+            <li><a href="shop.html">Raw Honey</a></li>
+            <li><a href="shop.html">Pasture Dairy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Journal Desk</h3>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>editorial@agro-farm.com</span></div>
+          <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><span>+1 (800) 456-7890</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Agro - Agriculture & Organic Food Marketplace. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Harvest Basket</h3>
+      <button class="close-drawer-btn" id="closeCartBtn">&times;</button>
+    </div>
+    <div class="cart-items-list" id="cartItems">
+      <div class="empty-cart-msg"><i class="fas fa-shopping-basket"></i><h4>Your basket is empty</h4></div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span>Subtotal:</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="cart-actions">
+        <button class="btn btn-primary" id="checkoutBtn"><span>Proceed to Checkout</span><i class="fas fa-lock"></i></button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="app.js"></script>
+</body>
+</html>
