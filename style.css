@@ -1333,6 +1333,59 @@ button {
   color: var(--white);
 }
 
+/* Doodle decorations beside card grids */
+.farmers-grid-wrap {
+  position: relative;
+}
+
+.farmer-doodle {
+  position: absolute;
+  top: 50%;
+  font-size: 2.4rem;
+  color: var(--primary-light);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 1;
+  animation: doodle-bob 4s ease-in-out infinite;
+}
+
+.farmer-doodle::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 34px;
+  background: var(--primary-light);
+  border-radius: var(--radius-full);
+  opacity: 0.7;
+}
+
+.doodle-left {
+  left: 18px;
+}
+
+.doodle-right {
+  right: 18px;
+  animation-delay: 1.6s;
+}
+
+@keyframes doodle-bob {
+  0%, 100% {
+    transform: translateY(-50%) translateY(-14px) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-50%) translateY(14px) rotate(8deg);
+  }
+}
+
+@media(max-width: 1100px) {
+  .farmer-doodle {
+    display: none;
+  }
+}
+
 /* ==========================================================================
    Testimonials Section
    ========================================================================== */
